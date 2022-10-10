@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,8 +13,6 @@ public class ObjectPooler : Singleton<ObjectPooler>
         public GameObject prefab;
         public int size;
         public int maxSize;
-        public int RemainDeactive { get; set; }
-
         public void SetSize(int size)
         {
             this.size = size;
@@ -21,20 +20,20 @@ public class ObjectPooler : Singleton<ObjectPooler>
     }
     public List<Pool> pools;
 
-    private Dictionary<string, Queue<GameObject>> poolDictionary;
+    private Dictionary<string, List<GameObject>> poolDictionary;
     private void Start()
     {
-        poolDictionary = new Dictionary<string, Queue<GameObject>>();
+        poolDictionary = new Dictionary<string, List<GameObject>>();
 
         foreach (var pool in pools)
         {
-            Queue<GameObject> objectPool = new Queue<GameObject>();
+            List<GameObject> objectPool = new List<GameObject>();
             for (int i = 0; i < pool.size; i++)
             {
                 GameObject obj = Instantiate(pool.prefab);
+                obj.name = pool.tag + (i + 1);
                 obj.SetActive(false);
-                objectPool.Enqueue(obj);
-                pool.RemainDeactive++;
+                objectPool.Add(obj);
             }
 
             poolDictionary.Add(pool.tag, objectPool);
@@ -48,44 +47,61 @@ public class ObjectPooler : Singleton<ObjectPooler>
             Debug.Log("Pool with tag: " + tag + " is not exist.");
             return null;
         }
-        bool isRemaining = false;
+        List<GameObject> items;
 
-        foreach (var p in pools)
+        var p = pools.FirstOrDefault(e => e.tag.Equals(tag));
+        if (p != null)
         {
-            if (p.tag.Equals(tag))
+            if (!poolDictionary.TryGetValue(tag, out items))
+            {
+                Debug.Log("Pool with tag: " + tag + " is not exist.");
+                return null;
+            }
+
+            if (p.maxSize < p.size)
+            {
+                Debug.LogError("MaxSize pool is smaller than Size");
+                return null;
+            }
+
+            GameObject objectToSpawn = items.FirstOrDefault(e => !e.activeInHierarchy);
+
+            if (objectToSpawn != null)
+            {
+                Debug.Log("nulll");
+                objectToSpawn.SetActive(true);
+                objectToSpawn.transform.position = position;
+                objectToSpawn.transform.rotation = rotation;
+
+                return objectToSpawn;
+            } else
             {
                 if (p.size == p.maxSize)
                 {
                     return null;
                 }
-                isRemaining = p.RemainDeactive == 0 ? false : true;
 
-                if (!isRemaining)
+                objectToSpawn = items.ElementAtOrDefault(0);
+                if (objectToSpawn == null)
                 {
-                    GameObject objectToSpawn = poolDictionary[tag].Peek();
-
-                    objectToSpawn.SetActive(true);
-                    objectToSpawn.transform.position = position;
-                    objectToSpawn.transform.rotation = rotation;
-
-                    poolDictionary[tag].Enqueue(objectToSpawn);
-                    p.SetSize(p.size + 1);
-                    Debug.Log(pools[0].size);
-                        return objectToSpawn;
+                    Debug.LogError($"Pool with tag {tag} is size = 0");
+                    return null;
                 }
-                else
-                {
-                    GameObject objectToSpawn = poolDictionary[tag].Dequeue();
+                GameObject obj = Instantiate(objectToSpawn);
 
-                    objectToSpawn.SetActive(true);
-                    objectToSpawn.transform.position = position;
-                    objectToSpawn.transform.rotation = rotation;
+                obj.name = tag + (p.size + 1);
+                obj.SetActive(true);
+                obj.transform.position = position;
+                obj.transform.rotation = rotation;
 
-                    poolDictionary[tag].Enqueue(objectToSpawn);
-                    p.RemainDeactive--;
-                    return objectToSpawn;
-                }
+                items.Add(obj);
+                p.SetSize(p.size + 1);
+
+                return objectToSpawn;
             }
+        } else
+        {
+            Debug.LogError("Can not find object with tag: " + tag);
         }
 
         return null;

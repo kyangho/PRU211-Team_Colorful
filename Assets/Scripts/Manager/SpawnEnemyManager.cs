@@ -13,6 +13,6 @@ public class SpawnEnemyManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        objectPooler.SpawnFromPool("Enemy", new Vector3(Random.Range(-100, 100), 0, 0), Quaternion.identity);
+        objectPooler.SpawnFromPool("Enemy", new Vector3(Random.Range(-10, 10), 3, 0), Quaternion.identity);
     }
 }
