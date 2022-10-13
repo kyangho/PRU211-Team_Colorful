@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnEnemyManager : MonoBehaviour
 {
-    const int maxEnermy = 10;
+    const int maxEnermy = 1;
     int numberOfEnermy = 0;
 
     [SerializeField]
@@ -13,7 +13,7 @@ public class SpawnEnemyManager : MonoBehaviour
     Timer spawnTimer;
 
     // Spawn location support
-    const int SpawnBorderSize = 100;
+    const int SpawnBorderSize = 10;
     int minSpawnX;
     int maxSpawnX;
     int minSpawnY;
@@ -31,7 +31,7 @@ public class SpawnEnemyManager : MonoBehaviour
 
         // Create and start timer
         spawnTimer = gameObject.AddComponent<Timer>();
-        spawnTimer.Duration = 1;
+        spawnTimer.Duration = 2;
         spawnTimer.Run();
     }
 
@@ -46,7 +46,7 @@ public class SpawnEnemyManager : MonoBehaviour
                 numberOfEnermy++;
 
                 // change spawn timer duration and restart
-                spawnTimer.Duration = 1;
+                spawnTimer.Duration = 2;
                 spawnTimer.Run();
             }
         }

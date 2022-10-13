@@ -137,4 +137,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 0}
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 3180014547924719399, guid: fd6473e6e4c5d6e45973137f52545072, type: 3}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enermy : MonoBehaviour, IBaseEntity
+public class Enermy : MonoBehaviour
 {
     public BaseData.PlayerDataManager playerData;
 
@@ -10,58 +10,47 @@ public class Enermy : MonoBehaviour, IBaseEntity
 
     public Transform playerTransform;
 
-    public float BaseSpeed { get; set; } = 15;
+    public float BaseSpeed { get; set; } = 5f;
     public float SmoothTime { get; set; } = 0.04f;
 
-    private Vector3 velocitySmoothing;
 
-    GameObject Player;
-
-    float newPositionX;
-    float newPositionY;
-
-    Vector3 targetPosition;
-
-    private Vector3 moveDir;
     void Start()
     {
         _body = GetComponent<Rigidbody2D>();
-        Player = GameObject.FindGameObjectWithTag("Player").gameObject;
-        targetPosition = Player.transform.position;
-        Debug.Log("targetPosition: " + targetPosition);
+        playerTransform.position = getPlayerTransform().position;
+
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        //targetPosition = Player.transform.position;
-        targetPosition = Player.transform.position;
-        Debug.Log("targetPosition: " + targetPosition);
-        Movement();
-    }
-    public void Movement()
-    {
-        while (gameObject.transform.position.x != targetPosition.x)
-        {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x + 0.1f, gameObject.transform.position.y, 0);
-        }
+        playerTransform.position = getPlayerTransform().position;
+        Debug.Log("playerPos: " + playerTransform.position);
 
-        while (transform.position.y != targetPosition.y)
-        {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.1f, 0);
-        }
+        Vector3 newPos = Vector3.MoveTowards(transform.position, playerTransform.position, BaseSpeed * Time.deltaTime);
+        _body.MovePosition(newPos);
+        transform.LookAt(playerTransform);
 
-        Debug.Log("newPosition: " + gameObject.transform.position);
+        
+        Debug.Log("newPos: " + newPos);
     }
 
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    collision.gameObject.SetActive(false);
-    //}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        Debug.Log("Ouchhhh!");
+        //collision.gameObject.SetActive(false);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         AudioManager.Instance.PlayAudioOneShot((AudioClip)Resources.Load("Audios/KillSound"), 0.1f);
         //collision.gameObject.SetActive(false);
+    }
+
+    private Transform getPlayerTransform()
+    {
+        return GameObject.FindGameObjectWithTag("Player").gameObject.transform;
     }
 }
