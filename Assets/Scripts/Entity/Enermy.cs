@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Enermy : MonoBehaviour
 {
-    public BaseData.PlayerDataManager playerData;
-
     private Rigidbody2D _body;
 
     public Transform playerTransform;
@@ -17,6 +15,7 @@ public class Enermy : MonoBehaviour
     void Start()
     {
         _body = GetComponent<Rigidbody2D>();
+        transform.rotation = Quaternion.Euler(0, 0, 0);
         playerTransform.position = getPlayerTransform().position;
 
     }
@@ -28,24 +27,15 @@ public class Enermy : MonoBehaviour
 
         Vector3 newPos = Vector3.MoveTowards(transform.position, playerTransform.position, BaseSpeed * Time.deltaTime);
         _body.MovePosition(newPos);
-        transform.LookAt(playerTransform);
+        //transform.LookAt(playerTransform);
 
         
         Debug.Log("newPos: " + newPos);
     }
-
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        Debug.Log("Ouchhhh!");
-        //collision.gameObject.SetActive(false);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        AudioManager.Instance.PlayAudioOneShot((AudioClip)Resources.Load("Audios/KillSound"), 0.1f);
+        if (collision.gameObject.tag == "Player")
+            AudioManager.Instance.PlayAudioOneShot((AudioClip)Resources.Load("Audios/KillSound"), 0.1f);
         //collision.gameObject.SetActive(false);
     }
 

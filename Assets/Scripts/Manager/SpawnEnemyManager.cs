@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpawnEnemyManager : MonoBehaviour
 {
-    const int maxEnermy = 1;
     int numberOfEnermy = 0;
 
     [SerializeField]
@@ -38,17 +37,14 @@ public class SpawnEnemyManager : MonoBehaviour
     void FixedUpdate()
     {
         //objectPooler.SpawnFromPool("Enemy", new Vector3(Random.Range(-10, 10), 3, 0), Quaternion.identity);
-        if (numberOfEnermy < maxEnermy)
+        if (spawnTimer.Finished)
         {
-            if (spawnTimer.Finished)
-            {
-                Spawner();
-                numberOfEnermy++;
+            Spawner();
+            numberOfEnermy++;
 
-                // change spawn timer duration and restart
-                spawnTimer.Duration = 2;
-                spawnTimer.Run();
-            }
+            // change spawn timer duration and restart
+            spawnTimer.Duration = 2;
+            spawnTimer.Run();
         }
     }
 
@@ -56,9 +52,9 @@ public class SpawnEnemyManager : MonoBehaviour
     {
         Vector3 location = new Vector3(Random.Range(minSpawnX, maxSpawnX),
             Random.Range(minSpawnY, maxSpawnY),
-            -Camera.main.transform.position.z);
+            0);
         Vector3 worldLocation = Camera.main.ScreenToWorldPoint(location);
-        enermy = Instantiate(enermyPrefab) as GameObject;
-        enermy.transform.position = worldLocation;
+        worldLocation.Set(worldLocation.x, worldLocation.y, -5);
+        ObjectPooler.Instance.SpawnFromPool("Enemy", worldLocation, Quaternion.identity);
     }
 }
