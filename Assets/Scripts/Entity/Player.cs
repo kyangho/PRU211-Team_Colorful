@@ -18,6 +18,8 @@ public class Player : MonoBehaviour, IBaseEntity
     public FloatingJoystick joystick;
     private State PlayerState { get; set; } = State.IDLE;
 
+    public float safeDistance = 10f;
+
     private Vector3 moveDir;
     void Start()
     {
@@ -92,9 +94,4 @@ public class Player : MonoBehaviour, IBaseEntity
         collision.gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        AudioManager.Instance.PlayAudioOneShot((AudioClip) Resources.Load("Audios/KillSound"), 0.1f);
-        collision.gameObject.SetActive(false);
-    }
 }

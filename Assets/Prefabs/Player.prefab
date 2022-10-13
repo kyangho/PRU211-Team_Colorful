@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3180014547924719399}
-  m_RootOrder: -1
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8662423838419967085
 SpriteRenderer:
@@ -113,7 +113,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3180014547924719399}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7970205845878994290
 GameObject:
@@ -145,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 7970205845878994290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3238662719290930441}
@@ -161,13 +161,13 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7970205845878994290}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -257,6 +257,7 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: 5da636922cae90441b03980813303940, type: 2}
   playerTransform: {fileID: 3180014547924719399}
   joystick: {fileID: 0}
+  safeDistance: 5
 --- !u!114 &2244836940713236809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,5 +271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 3238662719290930441}
-  bullet: {fileID: 148725120616052740, guid: fe5930b706f47ca4cbcb2947be959018, type: 3}
-  mainBullet: {fileID: 2836359159313187073}
+  rangeWeapon: {fileID: 148725120616052740, guid: 3749519c09f29da409dadba913bb8685, type: 3}
+  meleeWeapon: {fileID: 148725120616052740, guid: fe5930b706f47ca4cbcb2947be959018, type: 3}
+  mainBullet: {fileID: 7970205845878994290}
+  countMelee: 1
+  maxCountMelee: 1

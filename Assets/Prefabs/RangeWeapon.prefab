@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: -712655003139505809}
   - component: {fileID: -380935497379570874}
   - component: {fileID: 559840667615837545}
-  - component: {fileID: -1590440795950920180}
+  - component: {fileID: -4223961682109328131}
   m_Layer: 0
-  m_Name: Bullet
-  m_TagString: bullet
+  m_Name: RangeWeapon
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &-712655003139505809
 CircleCollider2D:
@@ -44,7 +44,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 148725120616052740}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c8176840643086147b928e459be80d71, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -65,12 +65,12 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c8176840643086147b928e459be80d71, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!212 &559840667615837545
 SpriteRenderer:
@@ -114,7 +114,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 54e850648939e1c47af5c99b8664a9ba, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.42502788, b: 0.8666667, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -124,7 +124,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-1590440795950920180
+--- !u!114 &-4223961682109328131
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,6 +133,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 148725120616052740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 203b215a3c64b9f48bdb4eac5f522440, type: 3}
+  m_Script: {fileID: 11500000, guid: 939e1d73bfcd588408fcfeedea321f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
