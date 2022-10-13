@@ -95,6 +95,9 @@ public class Player : MonoBehaviour, IBaseEntity
     private void OnTriggerEnter2D(Collider2D collision)
     {
         AudioManager.Instance.PlayAudioOneShot((AudioClip) Resources.Load("Audios/KillSound"), 0.1f);
-        //collision.gameObject.SetActive(false);
+        if (collision.tag.ToLower().Equals("enemy"))
+        {
+            collision.gameObject.SetActive(false);
+        }
     }
 }
