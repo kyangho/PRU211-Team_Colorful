@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    [SerializeField]
-    Transform firePoint;
-    [SerializeField]
-    GameObject rangeWeapon;
-    [SerializeField]
-    GameObject meleeWeapon;
-    [SerializeField]
-    GameObject mainBullet;
+    private Transform[] firePoints = new Transform[6];
+
+    private GameObject mainBullet;
 
     public int countMelee = 1;
     public int maxCountMelee = 1;
@@ -19,12 +14,20 @@ public class Shooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        firePoints[0] = this.transform.Find("firePointOne");
+        firePoints[1] = this.transform.Find("firePointTwo");
+        firePoints[2] = this.transform.Find("firePointThree");
+        firePoints[3] = this.transform.Find("firePointFour");
+        firePoints[4] = this.transform.Find("firePointFive");
+        firePoints[5] = this.transform.Find("firePointSix");
 
+        mainBullet = gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(firePoints[5].transform.position);
         //mainBullet.transform.Rotate(0, 0, 0);
         GameObject target;
         target = getTarget("DangerEnemy");
@@ -34,13 +37,13 @@ public class Shooting : MonoBehaviour
                 rotate(getTarget("Enemy"));
             else
                 rotate(target);
-            shoot(rangeWeapon);
+            //shoot(rangeWeapon);
         }
         Debug.Log("Count melee: " + countMelee);
         if (target != null && countMelee > 0)
         {
             rotate(target);
-            shoot(meleeWeapon);
+            //shoot(meleeWeapon);
             //Debug.Log("Count melee: " + countMelee);
             countMelee--;
         }
@@ -56,13 +59,15 @@ public class Shooting : MonoBehaviour
     {
         if (target != null)
         {
-            float angle = Vector3.Angle(target.transform.position - mainBullet.transform.position, Vector3.up);
-            if (target.transform.position.x > mainBullet.transform.position.x)
-            {
-                angle = -angle;
-            }
+            //float angle = Vector3.Angle(target.transform.position - mainBullet.transform.position, Vector3.up);
+            //if (target.transform.position.x > mainBullet.transform.position.x)
+            //{
+            //    angle = -angle;
+            //}
             //Debug.Log("Angle: " + angle);
-            mainBullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            //mainBullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+
             //Vector3 direction = target.transform.position - mainBullet.transform.position;
             //mainBullet.transform.rotation = Quaternion.LookRotation(target.transform.position);
 
@@ -75,9 +80,9 @@ public class Shooting : MonoBehaviour
     /// <param name="weapon"></param>
     void shoot(GameObject weapon)
     {
-        GameObject Bullet = Instantiate(weapon, firePoint.position, firePoint.rotation);
-        Rigidbody2D rb = Bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * 20f, ForceMode2D.Impulse);
+        //GameObject Bullet = Instantiate(weapon, firePoint.position, firePoint.rotation);
+        //Rigidbody2D rb = Bullet.GetComponent<Rigidbody2D>();
+        //rb.AddForce(firePoint.up * 20f, ForceMode2D.Impulse);
     }
 
     /// <summary>
