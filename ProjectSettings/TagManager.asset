@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - InputControl
+  - Enemy
   layers:
   - Default
   - TransparentFX
