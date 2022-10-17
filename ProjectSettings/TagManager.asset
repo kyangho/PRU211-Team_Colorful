@@ -5,7 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - InputControl
+  - bullet
   - Enemy
+  - DangerEnemy
   layers:
   - Default
   - TransparentFX

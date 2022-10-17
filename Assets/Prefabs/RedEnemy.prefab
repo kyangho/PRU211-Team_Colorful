@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3180014547924719399}
   - component: {fileID: 838435057263094381}
-  - component: {fileID: 237748742313400898}
+  - component: {fileID: -1393217893588405218}
   - component: {fileID: -7177014379230742271}
-  - component: {fileID: 7530626677350129736}
+  - component: {fileID: -7986977083486708455}
   m_Layer: 0
-  m_Name: Player
-  m_TagString: Player
+  m_Name: RedEnemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7970205845878994290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.71298, y: -5.6392226, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,9 +55,9 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!70 &237748742313400898
-CapsuleCollider2D:
+  m_Constraints: 0
+--- !u!58 &-1393217893588405218
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -70,8 +70,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 0
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!212 &-7177014379230742271
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -113,8 +113,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 66fffbd1ccc270e48abf03d14fa061ad, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -2413806693520163455, guid: 54e850648939e1c47af5c99b8664a9ba, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -124,7 +124,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7530626677350129736
+--- !u!114 &-7986977083486708455
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,9 +133,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7970205845878994290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce99932e8f19981448267ef07a30aa18, type: 3}
+  m_Script: {fileID: 11500000, guid: 788e4e522cee9834d961159bddb5c8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 5da636922cae90441b03980813303940, type: 2}
-  playerTransform: {fileID: 3180014547924719399}
-  joystick: {fileID: 0}
