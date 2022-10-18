@@ -10,6 +10,7 @@ public class Player : MonoBehaviour, IBaseEntity
 
     public Transform playerTransform;   
     
+    Animator animator;
     public float BaseSpeed { get; set; } = 15;
     public float SmoothTime { get; set; } = 0.04f;
 
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour, IBaseEntity
     {
         _body = GetComponent<Rigidbody2D>();
         joystick = GameObject.FindGameObjectWithTag("InputControl").GetComponent<FloatingJoystick>();
+        animator = gameObject.GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()
@@ -71,8 +73,10 @@ public class Player : MonoBehaviour, IBaseEntity
         if (isMoving)
         {
             PlayerState = State.MOVEMENT;
+            animator.SetBool("Run", true);
         } else
         {
+            animator.SetBool("Run", false);
             PlayerState = State.IDLE;
         }
     }
