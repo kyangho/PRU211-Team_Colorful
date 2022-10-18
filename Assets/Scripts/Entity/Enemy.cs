@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
             Vector3 point = new Vector3(player.transform.position.x, player.transform.position.y, -Camera.main.transform.position.z);
             transform.position = Vector2.MoveTowards(transform.position, point, step);
 
-            if (player.gameObject.GetComponent<Player>().safeDistance >= Vector3.Distance(this.transform.position, player.transform.position)) {
+            if (player.gameObject.GetComponent<Player>().SafeDistance >= Vector3.Distance(this.transform.position, player.transform.position)) {
                 tag = "DangerEnemy";
             } else
             {
@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Collision exit");
+        //Debug.Log("Collision exit");
         if(collision.gameObject.tag == "Player")
         {
             MoveUnitsPerSecond = 1f;
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision enter");
+        //Debug.Log("Collision enter");
         if(collision.gameObject.tag == "Player")
         {
             MoveUnitsPerSecond = 0f;

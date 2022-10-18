@@ -18,7 +18,7 @@ public class Player : MonoBehaviour, IBaseEntity
     public FloatingJoystick joystick;
     private State PlayerState { get; set; } = State.IDLE;
 
-    public float safeDistance = 10f;
+    public float SafeDistance { get; set; } = 10f;
 
     private Vector3 moveDir;
     void Start()
