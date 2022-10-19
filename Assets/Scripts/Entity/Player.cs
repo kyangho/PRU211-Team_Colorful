@@ -8,16 +8,18 @@ public class Player : MonoBehaviour, IBaseEntity
 
     private Rigidbody2D _body;
 
-    public Transform playerTransform;   
-    
+    public Transform playerTransform;
     Animator animator;
-    public float BaseSpeed { get; set; } = 15;
+
+    public float BaseSpeed { get; set; } = 8;
     public float SmoothTime { get; set; } = 0.04f;
 
     private Vector3 velocitySmoothing;
 
     public FloatingJoystick joystick;
     private State PlayerState { get; set; } = State.IDLE;
+
+    public float SafeDistance { get; set; } = 10f;
 
     private Vector3 moveDir;
     void Start()
@@ -72,8 +74,9 @@ public class Player : MonoBehaviour, IBaseEntity
         }
         if (isMoving)
         {
-            PlayerState = State.MOVEMENT;
             animator.SetBool("Run", true);
+            PlayerState = State.MOVEMENT;
+          
         } else
         {
             animator.SetBool("Run", false);
