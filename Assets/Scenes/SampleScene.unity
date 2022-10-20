@@ -736,8 +736,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -817,8 +817,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cf3608c6c051d64b804454a10b7dd6f, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   timerCounter: {fileID: 425658509}
   currentTime: 0
 --- !u!114 &425658509
@@ -831,8 +831,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -3740,10 +3740,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
-  - tag: Enemy
+  - tag: Enemy 1
     prefab: {fileID: 7970205845878994290, guid: fa26e89cb7ee993448259021f5185c3a, type: 3}
     size: 5
-    maxSize: 10
+    maxSize: 5
+  - tag: Enemy 2
+    prefab: {fileID: 3067621507641484392, guid: 97fdc1051b04e264282e0c4992edc37c, type: 3}
+    size: 5
+    maxSize: 5
+  - tag: Enemy 3
+    prefab: {fileID: 1450009375645318336, guid: f28916d753ca22e42867316faf4f86bb, type: 3}
+    size: 5
+    maxSize: 5
 --- !u!114 &1113890944
 MonoBehaviour:
   m_ObjectHideFlags: 0

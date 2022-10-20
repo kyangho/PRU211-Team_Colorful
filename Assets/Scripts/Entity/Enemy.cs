@@ -29,19 +29,20 @@ public class Enemy : MonoBehaviour
                 tag = "DangerEnemy";
             } else
             {
-                tag = "Enemy";
+                Debug.Log(this.tag);
+                tag = this.tag;
             }
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        Debug.Log("Collision exit");
-        if(collision.gameObject.tag == "Player")
-        {
-            MoveUnitsPerSecond = 1f;
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    Debug.Log("Collision exit");
+    //    if(collision.gameObject.tag == "Player")
+    //    {
+    //        MoveUnitsPerSecond = 1f;
+    //    }
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

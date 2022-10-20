@@ -21,6 +21,18 @@ public class SpawnEnemyManager : MonoBehaviour
             //Debug.Log("Distance: " + Vector3.Distance(position, player.transform.position));
         } while (Vector3.Distance(position, player.transform.position) < player.gameObject.GetComponent<Player>().SafeDistance);
         //if (Vector3.Distance(position, player.transform.position) < player.gameObject.GetComponent<Player>().safeDistance)
-        objectPooler.SpawnFromPool("Enemy", new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0), Quaternion.identity);
+        int number = Random.Range(1, 4);
+        switch (number)
+        {
+            case 1:
+                objectPooler.SpawnFromPool("Enemy 1", new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0), Quaternion.identity);
+                break;
+            case 2:
+                objectPooler.SpawnFromPool("Enemy 2", new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0), Quaternion.identity);
+                break;
+            case 3:
+                objectPooler.SpawnFromPool("Enemy 3", new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0), Quaternion.identity);
+                break;
+        }
     }
 }
