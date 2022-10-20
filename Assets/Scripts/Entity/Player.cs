@@ -8,9 +8,10 @@ public class Player : MonoBehaviour, IBaseEntity
 
     private Rigidbody2D _body;
 
-    public Transform playerTransform;   
-    
-    public float BaseSpeed { get; set; } = 15;
+    public Transform playerTransform;
+    Animator animator;
+
+    public float BaseSpeed { get; set; } = 8;
     public float SmoothTime { get; set; } = 0.04f;
 
     private Vector3 velocitySmoothing;
@@ -18,13 +19,24 @@ public class Player : MonoBehaviour, IBaseEntity
     public FloatingJoystick joystick;
     private State PlayerState { get; set; } = State.IDLE;
 
-    public float SafeDistance { get; set; } = 10f;
+    [SerializeField]
+    public float SafeDistance { get; set; } = 3f;
+
+    [SerializeField]
+    public float HP = 5000;
+    [SerializeField]
+    public float ATK = 200;
+
 
     private Vector3 moveDir;
     void Start()
     {
         _body = GetComponent<Rigidbody2D>();
         joystick = GameObject.FindGameObjectWithTag("InputControl").GetComponent<FloatingJoystick>();
+        animator = gameObject.GetComponent<Animator>();
+
+        gameObject.GetComponent<HealthSystem>().CurrentHealth = HP;
+        gameObject.GetComponent<HealthSystem>().MaximumHealth = HP;
     }
     // Update is called once per frame
     void Update()
@@ -72,9 +84,12 @@ public class Player : MonoBehaviour, IBaseEntity
         }
         if (isMoving)
         {
+            animator.SetBool("Run", true);
             PlayerState = State.MOVEMENT;
+          
         } else
         {
+            animator.SetBool("Run", false);
             PlayerState = State.IDLE;
         }
     }
@@ -102,4 +117,5 @@ public class Player : MonoBehaviour, IBaseEntity
         //    collision.gameObject.SetActive(false);
         //}
     }
+
 }

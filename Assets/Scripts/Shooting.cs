@@ -82,10 +82,6 @@ public class Shooting : MonoBehaviour
         Rigidbody2D rb = Bullet.GetComponent<Rigidbody2D>();
         //Debug.Log("Weapon: " + weapon.name +"\tFirepoint: "+firePoint.name);
         weapon.GetComponent<Weapon>().FirePoint = firePoint;
-        if (firePoint.name == "firePointSix" || firePoint.name == "firePointFive")
-        {
-            Debug.Log("weapoint firepoint: " + weapon.GetComponent<Weapon>().FirePoint.GetComponent<MeleeShooting>().countMelee);
-        }
         rb.AddForce(firePoint.transform.up * 20f, ForceMode2D.Impulse);
         return Bullet;
     }

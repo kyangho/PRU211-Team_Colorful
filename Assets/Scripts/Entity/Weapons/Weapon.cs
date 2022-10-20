@@ -3,9 +3,11 @@ using UnityEngine;
 
 namespace Assets.Scripts.Entity.Weapons
 {
-    
     public class Weapon : MonoBehaviour
     {
+        [SerializeField]
+        public float range;
+
         public GameObject FirePoint { get; set; }
         // Use this for initialization
         void Start()

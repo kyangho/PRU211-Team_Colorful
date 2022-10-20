@@ -6,7 +6,7 @@ using UnityEngine;
 public class MeleeWeapon : Weapon
 {
 
-    int check = 1;
+    bool isOut = true;
     float MoveUnitsPerSecond = 20f;
     float colliderHalf;
     GameObject player;
@@ -24,7 +24,7 @@ public class MeleeWeapon : Weapon
     void Update()
     {
         //Debug.Log("Check: " + check);
-        if (check == 0)
+        if (!isOut)
         {
             //Debug.Log("count melee: " + base.FirePoint.name);
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -50,39 +50,19 @@ public class MeleeWeapon : Weapon
     {
         Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
         //Debug.Log("playerPosi:" + playerPosition);
-        if (Vector3.Distance(playerPosition, gameObject.transform.position) >= player.gameObject.GetComponent<Player>().SafeDistance)
+        if (Vector3.Distance(playerPosition, gameObject.transform.position) >= range)
         {
-            check = 0;
+            isOut = false;
         }
-        //Vector3 position = transform.position;
-        //// clamp horizontally
-        //if (position.x - colliderHalf < ScreenUtils.ScreenLeft)
-        //{
-        //    check = 0;
-        //}
-        //else if (position.x + colliderHalf > ScreenUtils.ScreenRight)
-        //{
-        //    check = 0;
-        //}
-
-        //// clamp vertically
-        //if (position.y + colliderHalf > ScreenUtils.ScreenTop)
-        //{
-        //    check = 0;
-        //}
-        //else if (position.y - colliderHalf < ScreenUtils.ScreenBottom)
-        //{
-        //    check = 0;
-        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log("Tag: " + collision.gameObject.tag + "    Check: " + check);
-        if (collision.gameObject.tag == "Player" && check == 0)
+        if (collision.gameObject.tag == "Player" && !isOut)
         {
-            if (FirePoint.gameObject.GetComponent<MeleeShooting>().countMelee < FirePoint.GetComponent<MeleeShooting>().maxCountMelee)
-                FirePoint.gameObject.GetComponent<MeleeShooting>().countMelee++;
+            if (FirePoint.GetComponent<MeleeShooting>().countMelee < FirePoint.GetComponent<MeleeShooting>().maxCountMelee)
+                FirePoint.GetComponent<MeleeShooting>().countMelee++;
             //    //AudioManager.Instance.PlayAudioOneShot((AudioClip)Resources.Load("Audios/KillSound"), 0.1f);
             //    //gameObject.SetActive(false);
             //    //Instantiate(meleeWeapon, FirePoint.transform.position, FirePoint.transform.rotation);
@@ -91,19 +71,4 @@ public class MeleeWeapon : Weapon
 
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "Player" && check == 0)
-    //    {
-    //        Destroy(gameObject);
-    //    }
-
-    //}
-
-
-    //private void OnDestroy()
-    //{
-    //    if (FirePoint.GetComponent<MeleeShooting>().countMelee < FirePoint.GetComponent<MeleeShooting>().maxCountMelee)
-    //        FirePoint.GetComponent<MeleeShooting>().countMelee++;
-    //}
 }
