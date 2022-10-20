@@ -1,14 +1,15 @@
+using Assets.Scripts.Entity.Weapons;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeWeapon : MonoBehaviour
+public class MeleeWeapon : Weapon
 {
 
     int check = 1;
-    float MoveUnitsPerSecond = 15f;
+    float MoveUnitsPerSecond = 20f;
     float colliderHalf;
-    GameObject target;
+    GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -16,26 +17,28 @@ public class MeleeWeapon : MonoBehaviour
         CircleCollider2D collider = GetComponent<CircleCollider2D>();
         colliderHalf = collider.radius / 2;
 
-        target = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log("Check: " + check);
         if (check == 0)
         {
+            //Debug.Log("count melee: " + base.FirePoint.name);
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             rb.velocity = Vector3.zero;
 
-            target = GameObject.FindGameObjectWithTag("Player");
+            player = GameObject.FindGameObjectWithTag("Player");
 
             float step = MoveUnitsPerSecond * Time.deltaTime;
-            //Vector3 direction = target.transform.position - transform.position;
+            //Vector3 direction = player.transform.position - transform.position;
             //transform.Translate(direction.x * step, direction.y * step, 0);
 
-            Vector3 point = new Vector3(target.transform.position.x, target.transform.position.y, -Camera.main.transform.position.z);
+            Vector3 point = new Vector3(player.transform.position.x, player.transform.position.y, -Camera.main.transform.position.z);
 
-            transform.position = Vector2.MoveTowards(transform.position, point, step);
+            transform.position = Vector3.MoveTowards(transform.position, point, step);
         }
         else
         {
@@ -45,7 +48,9 @@ public class MeleeWeapon : MonoBehaviour
 
     void ClampInRange()
     {
-        if (Vector3.Distance(target.transform.position, transform.position) >= target.gameObject.GetComponent<Player>().safeDistance)
+        Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+        //Debug.Log("playerPosi:" + playerPosition);
+        if (Vector3.Distance(playerPosition, gameObject.transform.position) >= player.gameObject.GetComponent<Player>().SafeDistance)
         {
             check = 0;
         }
@@ -71,20 +76,34 @@ public class MeleeWeapon : MonoBehaviour
         //}
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Debug.Log("Tag: " + collision.gameObject.tag + "    Check: " + check);
+        if (collision.gameObject.tag == "Player" && check == 0)
+        {
+            if (FirePoint.gameObject.GetComponent<MeleeShooting>().countMelee < FirePoint.GetComponent<MeleeShooting>().maxCountMelee)
+                FirePoint.gameObject.GetComponent<MeleeShooting>().countMelee++;
+            //    //AudioManager.Instance.PlayAudioOneShot((AudioClip)Resources.Load("Audios/KillSound"), 0.1f);
+            //    //gameObject.SetActive(false);
+            //    //Instantiate(meleeWeapon, FirePoint.transform.position, FirePoint.transform.rotation);
+            Destroy(gameObject);
+        }
+
+    }
+
+    //private void OnCollisionEnter(Collision collision)
     //{
-    //    if (collision.gameObject.tag == "DangerEnemy")
+    //    if (collision.gameObject.tag == "Player" && check == 0)
     //    {
-    //        AudioManager.Instance.PlayAudioOneShot((AudioClip)Resources.Load("Audios/KillSound"), 0.1f);
-    //        collision.gameObject.SetActive(false);
+    //        Destroy(gameObject);
     //    }
 
     //}
 
-    private void OnDisable()
-    {
-        if (target.GetComponent<Shooting>().countMelee < target.GetComponent<Shooting>().maxCountMelee)
-            target.GetComponent<Shooting>().countMelee++;
 
-    }
+    //private void OnDestroy()
+    //{
+    //    if (FirePoint.GetComponent<MeleeShooting>().countMelee < FirePoint.GetComponent<MeleeShooting>().maxCountMelee)
+    //        FirePoint.GetComponent<MeleeShooting>().countMelee++;
+    //}
 }

@@ -8,6 +8,11 @@ TagManager:
   - bullet
   - Enemy
   - DangerEnemy
+  - Weapon
+  - MeleeWeapon
+  - RangeWeapon
+  - FirePoint
+  - Wall
   layers:
   - Default
   - TransparentFX
