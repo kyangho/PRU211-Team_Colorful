@@ -13,6 +13,7 @@ TagManager:
   - RangeWeapon
   - FirePoint
   - Wall
+  - Cam
   layers:
   - Default
   - TransparentFX

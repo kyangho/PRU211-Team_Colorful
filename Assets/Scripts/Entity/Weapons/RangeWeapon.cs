@@ -13,7 +13,11 @@ public class RangeWeapon : Weapon
     // Update is called once per frame
     void Update()
     {
-
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if(Vector3.Distance(player.transform.position, transform.position) > range)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,6 +28,10 @@ public class RangeWeapon : Weapon
             //collision.gameObject.tag = "Enemy";
             collision.gameObject.SetActive(false);
             Destroy(gameObject);
+        }
+        else
+        {
+            return;
         }
 
     }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5241367787464958395}
   - component: {fileID: 4999848364328321721}
   - component: {fileID: 2724073340170673534}
+  - component: {fileID: -9180433012420658389}
   m_Layer: 0
   m_Name: enStone1
   m_TagString: Enemy
@@ -120,6 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788e4e522cee9834d961159bddb5c8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  atk: 10
+  attackRange: 2
+  cdTime: 2000
+  waitTime: 0
 --- !u!50 &4999848364328321721
 Rigidbody2D:
   serializedVersion: 4
@@ -157,3 +162,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-9180433012420658389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450009375645318336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258d2eb9136ce48498c682718e103ef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

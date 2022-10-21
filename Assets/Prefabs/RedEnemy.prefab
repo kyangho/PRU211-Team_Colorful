@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -7177014379230742271}
   - component: {fileID: -7986977083486708455}
   - component: {fileID: -8901473004990179139}
+  - component: {fileID: 320915971175299253}
   m_Layer: 0
   m_Name: RedEnemy
   m_TagString: Enemy
@@ -70,9 +71,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.021538496, y: -0.09692359}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.2215419
 --- !u!212 &-7177014379230742271
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -153,7 +154,19 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &320915971175299253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7970205845878994290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258d2eb9136ce48498c682718e103ef4, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3238662719290930441}
   - component: {fileID: 6370859506551940228}
   - component: {fileID: 5454944835272731934}
-  - component: {fileID: 2249012788519907150}
+  - component: {fileID: 908093177367060545}
   m_Layer: 0
   m_Name: firePointOne
   m_TagString: FirePoint
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3291461169198881981}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.31, y: 0.009999987, z: 0}
+  m_LocalPosition: {x: 0.6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011b8b8bf572a4a45b029063cb41d721, type: 3}
   m_Name:
   m_EditorClassIdentifier:
---- !u!114 &2249012788519907150
+--- !u!114 &908093177367060545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,10 +107,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3291461169198881981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a5a7d9e0740e93489964c9d18a9c44e, type: 3}
+  m_Script: {fileID: 11500000, guid: 514d07664c5e53746b162707205e79fa, type: 3}
   m_Name:
   m_EditorClassIdentifier:
-  rangeWeapon: {fileID: 148725120616052740, guid: 3749519c09f29da409dadba913bb8685, type: 3}
+  countMelee: 1
+  maxCountMelee: 1
+  meleeWeapon: {fileID: 148725120616052740, guid: fe5930b706f47ca4cbcb2947be959018, type: 3}
 --- !u!1 &3998485478163148054
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3998485478163148054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.12, y: 0.68, z: 0}
+  m_LocalPosition: {x: 0.3, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -233,7 +235,7 @@ GameObject:
   - component: {fileID: 4726239491380851595}
   - component: {fileID: 451614364444497398}
   - component: {fileID: 1036146183234140863}
-  - component: {fileID: 7769764369127982261}
+  - component: {fileID: 6600597341957591108}
   m_Layer: 0
   m_Name: firePointThree
   m_TagString: FirePoint
@@ -249,7 +251,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4288835615445748434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.31, y: 0.009999987, z: 0}
+  m_LocalPosition: {x: -0.6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -320,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011b8b8bf572a4a45b029063cb41d721, type: 3}
   m_Name:
   m_EditorClassIdentifier:
---- !u!114 &7769764369127982261
+--- !u!114 &6600597341957591108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -329,10 +331,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4288835615445748434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a5a7d9e0740e93489964c9d18a9c44e, type: 3}
+  m_Script: {fileID: 11500000, guid: 514d07664c5e53746b162707205e79fa, type: 3}
   m_Name:
   m_EditorClassIdentifier:
-  rangeWeapon: {fileID: 148725120616052740, guid: 3749519c09f29da409dadba913bb8685, type: 3}
+  countMelee: 1
+  maxCountMelee: 1
+  meleeWeapon: {fileID: 148725120616052740, guid: fe5930b706f47ca4cbcb2947be959018, type: 3}
 --- !u!1 &4791044433749401729
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +348,7 @@ GameObject:
   - component: {fileID: 7294945339404730941}
   - component: {fileID: 6077598461745266214}
   - component: {fileID: 4820163698304417735}
-  - component: {fileID: 4712922182659027954}
+  - component: {fileID: 5118692097378523500}
   m_Layer: 0
   m_Name: firePointSix
   m_TagString: FirePoint
@@ -360,7 +364,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4791044433749401729}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.68, y: 1.22, z: 0}
+  m_LocalPosition: {x: 0.3, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -431,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011b8b8bf572a4a45b029063cb41d721, type: 3}
   m_Name:
   m_EditorClassIdentifier:
---- !u!114 &4712922182659027954
+--- !u!114 &5118692097378523500
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -440,12 +444,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4791044433749401729}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 514d07664c5e53746b162707205e79fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a5a7d9e0740e93489964c9d18a9c44e, type: 3}
   m_Name:
   m_EditorClassIdentifier:
-  countMelee: 1
-  maxCountMelee: 1
-  meleeWeapon: {fileID: 148725120616052740, guid: fe5930b706f47ca4cbcb2947be959018, type: 3}
+  rangeWeapon: {fileID: 148725120616052740, guid: 3749519c09f29da409dadba913bb8685, type: 3}
 --- !u!1 &4913716412709172165
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4913716412709172165}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.16, y: 0.68, z: 0}
+  m_LocalPosition: {x: -0.3, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -568,7 +570,7 @@ GameObject:
   - component: {fileID: 6579438171985742498}
   - component: {fileID: 6306698970614008991}
   - component: {fileID: 6020840468121167328}
-  - component: {fileID: 8235489048530013511}
+  - component: {fileID: 1891747464122698443}
   m_Layer: 0
   m_Name: firePointFive
   m_TagString: FirePoint
@@ -584,7 +586,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5930338963501870285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.68, y: 1.22, z: 0}
+  m_LocalPosition: {x: -0.3, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -655,7 +657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011b8b8bf572a4a45b029063cb41d721, type: 3}
   m_Name:
   m_EditorClassIdentifier:
---- !u!114 &8235489048530013511
+--- !u!114 &1891747464122698443
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -664,12 +666,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5930338963501870285}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 514d07664c5e53746b162707205e79fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a5a7d9e0740e93489964c9d18a9c44e, type: 3}
   m_Name:
   m_EditorClassIdentifier:
-  countMelee: 1
-  maxCountMelee: 1
-  meleeWeapon: {fileID: 148725120616052740, guid: fe5930b706f47ca4cbcb2947be959018, type: 3}
+  rangeWeapon: {fileID: 148725120616052740, guid: 3749519c09f29da409dadba913bb8685, type: 3}
 --- !u!1 &7970205845878994290
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,6 +685,8 @@ GameObject:
   - component: {fileID: 7530626677350129736}
   - component: {fileID: 2244836940713236809}
   - component: {fileID: 5251675312591764654}
+  - component: {fileID: 5832597602947196541}
+  - component: {fileID: 4929742125108555118}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -701,7 +703,7 @@ Transform:
   m_GameObject: {fileID: 7970205845878994290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 0}
+  m_LocalScale: {x: 2, y: 1.9999996, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3238662719290930441}
@@ -748,7 +750,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.6, y: 1.1}
   m_Direction: 0
 --- !u!212 &-7177014379230742271
 SpriteRenderer:
@@ -817,6 +819,8 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: 5da636922cae90441b03980813303940, type: 2}
   playerTransform: {fileID: 3180014547924719399}
   joystick: {fileID: 0}
+  HP: 5000
+  ATK: 200
 --- !u!114 &2244836940713236809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -849,3 +853,42 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5832597602947196541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7970205845878994290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68e86bdc791d5894dbbda817d024d504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsAlive: 1
+  CurrentHealth: 3000
+  MaximumHealth: 3000
+  HasAnimationWhenHealthChanges: 0
+  AnimationDuration: 0.1
+  OnCurrentHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnIsAliveChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMaximumHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  HealthBarPrefabToSpawn: {fileID: 1896192369536451222, guid: 56af1d8762815414daf27dcbb5af473c, type: 3}
+--- !u!114 &4929742125108555118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7970205845878994290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258d2eb9136ce48498c682718e103ef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier:
