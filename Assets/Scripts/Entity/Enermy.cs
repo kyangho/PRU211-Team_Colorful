@@ -23,20 +23,14 @@ public class Enermy : MonoBehaviour
     void FixedUpdate()
     {
         playerTransform.position = getPlayerTransform().position;
-        Debug.Log("playerPos: " + playerTransform.position);
 
         Vector3 newPos = Vector3.MoveTowards(transform.position, playerTransform.position, BaseSpeed * Time.deltaTime);
         _body.MovePosition(newPos);
-        //transform.LookAt(playerTransform);
-
-        
-        Debug.Log("newPos: " + newPos);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
             AudioManager.Instance.PlayAudioOneShot((AudioClip)Resources.Load("Audios/KillSound"), 0.1f);
-        //collision.gameObject.SetActive(false);
     }
 
     private Transform getPlayerTransform()

@@ -25,15 +25,10 @@ public class MeleeShooting : Shooting
         target = getTarget("DangerEnemy");
         if (target != null && countMelee > 0)
         {
-            Debug.Log(target.transform.position);
-            Debug.Log(Vector3.Angle(target.transform.position-transform.position, Vector3.up));
             rotate(target);
             GameObject shooter = shoot(meleeWeapon, gameObject);
             shooter.gameObject.GetComponent<MeleeWeapon>().FirePoint = gameObject;
-            Debug.Log(name);
-            //Debug.Log("Count melee: " + meleeWeapon.gameObject.GetComponent<MeleeWeapon>().FirePoint.GetComponent<MeleeShooting>().countMelee);
             countMelee--;
-            //Debug.Log("Count melee 2: " + meleeWeapon.gameObject.GetComponent<MeleeWeapon>().FirePoint.GetComponent<MeleeShooting>().countMelee);
         }
 
     }

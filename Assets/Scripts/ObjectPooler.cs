@@ -44,7 +44,6 @@ public class ObjectPooler : Singleton<ObjectPooler>
     {
         if (!poolDictionary.ContainsKey(tag))
         {
-            Debug.Log("Pool with tag: " + tag + " is not exist.");
             return null;
         }
         List<GameObject> items;
@@ -54,13 +53,11 @@ public class ObjectPooler : Singleton<ObjectPooler>
         {
             if (!poolDictionary.TryGetValue(tag, out items))
             {
-                Debug.Log("Pool with tag: " + tag + " is not exist.");
                 return null;
             }
 
             if (p.maxSize < p.size)
             {
-                Debug.LogError("MaxSize pool is smaller than Size");
                 return null;
             }
 
@@ -68,7 +65,6 @@ public class ObjectPooler : Singleton<ObjectPooler>
 
             if (objectToSpawn != null)
             {
-                Debug.Log("nulll");
                 objectToSpawn.SetActive(true);
                 objectToSpawn.transform.position = position;
                 objectToSpawn.transform.rotation = rotation;
@@ -84,7 +80,6 @@ public class ObjectPooler : Singleton<ObjectPooler>
                 objectToSpawn = items.ElementAtOrDefault(0);
                 if (objectToSpawn == null)
                 {
-                    Debug.LogError($"Pool with tag {tag} is size = 0");
                     return null;
                 }
                 GameObject obj = Instantiate(objectToSpawn);
@@ -101,7 +96,7 @@ public class ObjectPooler : Singleton<ObjectPooler>
             }
         } else
         {
-            Debug.LogError("Can not find object with tag: " + tag);
+            
         }
 
         return null;

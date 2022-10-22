@@ -5,46 +5,16 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    //private Transform[] firePoints = new Transform[6];
-
-    //private GameObject mainBullet;
 
     // Start is called before the first frame update
     void Start()
     {
-        //firePoints[0] = this.transform.Find("firePointOne");
-        //firePoints[1] = this.transform.Find("firePointTwo");
-        //firePoints[2] = this.transform.Find("firePointThree");
-        //firePoints[3] = this.transform.Find("firePointFour");
-        //firePoints[4] = this.transform.Find("firePointFive");
-        //firePoints[5] = this.transform.Find("firePointSix");
 
-        //mainBullet = gameObject;
     }
 
     // Update is called once per frame
     protected void Update()
     {
-        //Debug.Log(firePoints[5].transform.position);
-        //mainBullet.transform.Rotate(0, 0, 0);
-        //GameObject target;
-        //target = getTarget("DangerEnemy");
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    if (target == null)
-        //        rotate(getTarget("Enemy"));
-        //    else
-        //        rotate(target);
-        //    //shoot(rangeWeapon);
-        //}
-        //Debug.Log("Count melee: " + countMelee);
-        //if (target != null && countMelee > 0)
-        //{
-        //    rotate(target);
-        //    //shoot(meleeWeapon);
-        //    //Debug.Log("Count melee: " + countMelee);
-        //    countMelee--;
-        //}
 
     }
 
@@ -62,13 +32,7 @@ public class Shooting : MonoBehaviour
             {
                 angle = -angle;
             }
-            //Debug.Log("Angle: " + angle);
             gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
-
-            //Vector3 direction = target.transform.position - gameObject.transform.position;
-            //gameObject.transform.rotation = Quaternion.LookRotation(target.transform.position);
-
         }
     }
 
@@ -80,7 +44,6 @@ public class Shooting : MonoBehaviour
     {
         GameObject Bullet = Instantiate<GameObject>(weapon, firePoint.transform.position, firePoint.transform.rotation);
         Rigidbody2D rb = Bullet.GetComponent<Rigidbody2D>();
-        //Debug.Log("Weapon: " + weapon.name +"\tFirepoint: "+firePoint.name);
         weapon.GetComponent<Weapon>().FirePoint = firePoint;
         rb.AddForce(firePoint.transform.up * 20f, ForceMode2D.Impulse);
         return Bullet;
@@ -95,7 +58,6 @@ public class Shooting : MonoBehaviour
     {
 
         GameObject[] enemyList = GameObject.FindGameObjectsWithTag(tag);
-        //Debug.Log(tag + "list: " + enemyList.Length);
         GameObject target = null;
         if (enemyList.Length > 0)
         {
@@ -113,7 +75,6 @@ public class Shooting : MonoBehaviour
 
         }
         return target;
-        //Debug.Log("position target: " + target.transform.position);
     }
 
 }

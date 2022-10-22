@@ -20,7 +20,6 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         waitTime = cdTime;
-        //player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -46,7 +45,6 @@ public class Enemy : MonoBehaviour
                 MoveUnitsPerSecond = 0f;
                 if(CoolDownAttack(Time.deltaTime))
                 {
-                    Debug.Log("Attack");
                     Attack(atk);
                 }
             } else
@@ -58,7 +56,6 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        //Debug.Log("Collision exit");
         if(collision.gameObject.tag == "Player")
         {
             MoveUnitsPerSecond = 1f;
@@ -84,7 +81,6 @@ public class Enemy : MonoBehaviour
     {
         if(waitTime >= cdTime)
         {
-            //Debug.Log("True");
             waitTime = 0f;
             return true;
         }
