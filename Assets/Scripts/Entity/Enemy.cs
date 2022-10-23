@@ -1,3 +1,4 @@
+using Assets.Scripts.Entity.Weapons;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,16 +11,22 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     float atk = 10f;
     [SerializeField]
+    float hp = 400f;
+    [SerializeField]
     float attackRange = 2f;
     [SerializeField]
-    float cdTime = 2000f;
-    [SerializeField]
-    float waitTime;
+    private float cdTime = 3f;
+    private float waitTime;
 
     // Start is called before the first frame update
     void Start()
     {
         waitTime = cdTime;
+
+        //Set max hp for enemy
+        gameObject.GetComponent<HealthSystem>().CurrentHealth = hp;
+        gameObject.GetComponent<HealthSystem>().MaximumHealth = hp;
+        gameObject.GetComponent<HealthSystem>().IsAlive = true;
     }
 
     // Update is called once per frame
@@ -29,11 +36,12 @@ public class Enemy : MonoBehaviour
         if(player != null)
         {
             float step = MoveUnitsPerSecond * Time.deltaTime;
+            //Find position of player and approach him
             Vector3 point = new Vector3(player.transform.position.x, player.transform.position.y, -Camera.main.transform.position.z);
             transform.position = Vector2.MoveTowards(transform.position, point, step);
             float distanceToPlayer = Vector3.Distance(this.transform.position, player.transform.position);
 
-            if (player.gameObject.GetComponent<Player>().SafeDistance >= distanceToPlayer) {
+            if (player.GetComponent<Player>().SafeDistance >= distanceToPlayer) {
                 tag = "DangerEnemy";
             } else
             {
@@ -64,11 +72,12 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag.Contains("Weapon"))
+        if (collision.gameObject.tag.Contains("Weapon"))
         {
-            gameObject.SetActive(false);
+            //GetComponent<HealthSystem>().GotHitFor(collision.gameObject.GetComponent<Weapon>().ATK);
+            //gameObject.SetActive(false);
         }
-        
+
     }
 
     void Attack(float damage)
@@ -88,5 +97,14 @@ public class Enemy : MonoBehaviour
         return false;
     }
 
-
+    /// <summary>
+    /// Set max hp when enemy be active
+    /// </summary>
+    private void OnEnable()
+    {
+        gameObject.GetComponent<HealthSystem>().CurrentHealth = hp;
+        gameObject.GetComponent<HealthSystem>().MaximumHealth = hp;
+        gameObject.GetComponent<HealthSystem>().IsAlive = true;
+        waitTime = cdTime;
+    }
 }

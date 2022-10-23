@@ -24,8 +24,6 @@ public class Player : MonoBehaviour, IBaseEntity
 
     [SerializeField]
     public float HP = 5000;
-    [SerializeField]
-    public float ATK = 200;
 
 
     private Vector3 moveDir;

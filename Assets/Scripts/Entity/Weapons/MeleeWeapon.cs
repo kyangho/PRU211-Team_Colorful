@@ -56,17 +56,18 @@ public class MeleeWeapon : Weapon
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log("Tag: " + collision.gameObject.tag + "    Check: " + check);
         if (collision.gameObject.tag == "Player" && !isOut)
         {
             if (FirePoint.GetComponent<MeleeShooting>().countMelee < FirePoint.GetComponent<MeleeShooting>().maxCountMelee)
                 FirePoint.GetComponent<MeleeShooting>().countMelee++;
-            //    //AudioManager.Instance.PlayAudioOneShot((AudioClip)Resources.Load("Audios/KillSound"), 0.1f);
-            //    //gameObject.SetActive(false);
-            //    //Instantiate(meleeWeapon, FirePoint.transform.position, FirePoint.transform.rotation);
             Destroy(gameObject);
+        }
+        if (collision.gameObject.tag.Contains("Enemy"))
+        {
+            collision.gameObject.GetComponent<HealthSystem>().GotHitFor(ATK);
         }
     }
 }

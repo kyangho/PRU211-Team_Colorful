@@ -79,6 +79,7 @@ public class HealthSystem : MonoBehaviour
         if (CurrentHealth <= 0)
         {
             IsAlive = false;
+            AudioManager.Instance.PlayAudioOneShot((AudioClip)Resources.Load("Audios/KillSound"), 0.1f);
             OnIsAliveChanged.Invoke(IsAlive);
         }
     }
@@ -116,7 +117,17 @@ public class HealthSystem : MonoBehaviour
         CurrentHealth = 0;
         IsAlive = false;
 
+
+        AudioManager.Instance.PlayAudioOneShot((AudioClip)Resources.Load("Audios/KillSound"), 0.1f);
         OnIsAliveChanged.Invoke(IsAlive);
         OnCurrentHealthChanged.Invoke(new CurrentHealth(previousHealth, CurrentHealth, CurrentHealthPercentage));
     }
+
+    //public void Dead(bool isAlive)
+    //{
+    //    if (isAlive)
+    //        gameObject.SetActive(true);
+    //    else
+    //        gameObject.SetActive(false);
+    //}
 }
