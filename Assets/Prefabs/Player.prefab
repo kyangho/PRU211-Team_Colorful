@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3238662719290930441}
   - component: {fileID: 6370859506551940228}
-  - component: {fileID: 5454944835272731934}
   - component: {fileID: 908093177367060545}
   m_Layer: 0
   m_Name: firePointOne
@@ -86,19 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5454944835272731934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3291461169198881981}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 011b8b8bf572a4a45b029063cb41d721, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldownTime: 5
 --- !u!114 &908093177367060545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +111,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8781564319647841193}
   - component: {fileID: 4009947235251448355}
-  - component: {fileID: 3762664491267216695}
   - component: {fileID: 6892623732867905955}
   m_Layer: 0
   m_Name: firePointTwo
@@ -201,19 +186,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3762664491267216695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3998485478163148054}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 011b8b8bf572a4a45b029063cb41d721, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldownTime: 5
 --- !u!114 &6892623732867905955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,7 +210,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4726239491380851595}
   - component: {fileID: 451614364444497398}
-  - component: {fileID: 1036146183234140863}
   - component: {fileID: 6600597341957591108}
   m_Layer: 0
   m_Name: firePointThree
@@ -314,19 +285,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1036146183234140863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4288835615445748434}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 011b8b8bf572a4a45b029063cb41d721, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldownTime: 5
 --- !u!114 &6600597341957591108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,7 +311,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7294945339404730941}
   - component: {fileID: 6077598461745266214}
-  - component: {fileID: 4820163698304417735}
   - component: {fileID: 5118692097378523500}
   m_Layer: 0
   m_Name: firePointSix
@@ -429,19 +386,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4820163698304417735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4791044433749401729}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 011b8b8bf572a4a45b029063cb41d721, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldownTime: 5
 --- !u!114 &5118692097378523500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,7 +410,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7829474536644720239}
   - component: {fileID: 2238322520611757958}
-  - component: {fileID: 5730270367636496067}
   - component: {fileID: 8287037441726760549}
   m_Layer: 0
   m_Name: firePointFour
@@ -542,19 +485,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5730270367636496067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4913716412709172165}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 011b8b8bf572a4a45b029063cb41d721, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldownTime: 5
 --- !u!114 &8287037441726760549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,7 +509,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6579438171985742498}
   - component: {fileID: 6306698970614008991}
-  - component: {fileID: 6020840468121167328}
   - component: {fileID: 1891747464122698443}
   m_Layer: 0
   m_Name: firePointFive
@@ -655,19 +584,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6020840468121167328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5930338963501870285}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 011b8b8bf572a4a45b029063cb41d721, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldownTime: 5
 --- !u!114 &1891747464122698443
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -36,16 +36,4 @@ public class RangeShooting : Shooting
 
     }
 
-    bool CoolDownAttack(float deltaTime)
-    {
-        if (waitTime >= cooldownTime)
-        {
-            //waitTime = 0f;
-            //Debug.Log("true");
-            return true;
-        }
-        waitTime += deltaTime;
-        //Debug.Log("wait time: " + waitTime + "\tcd time: " + cooldownTime);
-        return false;
-    }
 }
