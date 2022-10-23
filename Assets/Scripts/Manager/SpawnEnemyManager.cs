@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnEnemyManager : MonoBehaviour
 {
     public enum SpawnState { SPAWNING, WAITTING, COUNTING }
 
+    public Text waveCounter;
     private int nextWave = 0;
 
-    public float timeBetweenWaves = 5f;
-    public float waveCountDown;
+    public float timeBetweenWaves;
+    private float waveCountDown;
 
     private float searchCountDown = 1f;
 
@@ -82,9 +84,9 @@ public class SpawnEnemyManager : MonoBehaviour
     IEnumerator SpawnWave()
     {
 
+        waveCounter.text = (nextWave + 1).ToString();
         state = SpawnState.SPAWNING;
         int numberOfEnemy = Random.Range(10, 30);
-        Debug.Log(numberOfEnemy);
         for (int i = 0; i < numberOfEnemy; i++)
         {
             SpawnEnemy();
@@ -98,7 +100,6 @@ public class SpawnEnemyManager : MonoBehaviour
     void SpawnEnemy()
     {
         int number = Random.Range(1, 4);
-        Debug.Log(number);
         switch (number)
         {
             case 1:

@@ -12,8 +12,6 @@ public class TimerManager : MonoBehaviour
 
     public float currentTime;
 
-    private TimeFormat timeFormat;
-
 
     // Start is called before the first frame update
     void Start()
