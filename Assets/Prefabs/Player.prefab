@@ -96,8 +96,9 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 011b8b8bf572a4a45b029063cb41d721, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 5
 --- !u!114 &908093177367060545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,8 +109,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 514d07664c5e53746b162707205e79fa, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 5
   countMelee: 1
   maxCountMelee: 1
   meleeWeapon: {fileID: 148725120616052740, guid: fe5930b706f47ca4cbcb2947be959018, type: 3}
@@ -209,8 +211,9 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 011b8b8bf572a4a45b029063cb41d721, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 5
 --- !u!114 &6892623732867905955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,8 +224,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a5a7d9e0740e93489964c9d18a9c44e, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 1
   rangeWeapon: {fileID: 148725120616052740, guid: 3749519c09f29da409dadba913bb8685, type: 3}
 --- !u!1 &4288835615445748434
 GameObject:
@@ -320,8 +324,9 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 011b8b8bf572a4a45b029063cb41d721, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 5
 --- !u!114 &6600597341957591108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,8 +337,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 514d07664c5e53746b162707205e79fa, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 5
   countMelee: 1
   maxCountMelee: 1
   meleeWeapon: {fileID: 148725120616052740, guid: fe5930b706f47ca4cbcb2947be959018, type: 3}
@@ -433,8 +439,9 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 011b8b8bf572a4a45b029063cb41d721, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 5
 --- !u!114 &5118692097378523500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,8 +452,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a5a7d9e0740e93489964c9d18a9c44e, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 1
   rangeWeapon: {fileID: 148725120616052740, guid: 3749519c09f29da409dadba913bb8685, type: 3}
 --- !u!1 &4913716412709172165
 GameObject:
@@ -544,8 +552,9 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 011b8b8bf572a4a45b029063cb41d721, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 5
 --- !u!114 &8287037441726760549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,8 +565,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a5a7d9e0740e93489964c9d18a9c44e, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 1
   rangeWeapon: {fileID: 148725120616052740, guid: 3749519c09f29da409dadba913bb8685, type: 3}
 --- !u!1 &5930338963501870285
 GameObject:
@@ -655,8 +665,9 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 011b8b8bf572a4a45b029063cb41d721, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 5
 --- !u!114 &1891747464122698443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,8 +678,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a5a7d9e0740e93489964c9d18a9c44e, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 1
   rangeWeapon: {fileID: 148725120616052740, guid: 3749519c09f29da409dadba913bb8685, type: 3}
 --- !u!1 &7970205845878994290
 GameObject:
@@ -819,8 +831,7 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: 5da636922cae90441b03980813303940, type: 2}
   playerTransform: {fileID: 3180014547924719399}
   joystick: {fileID: 0}
-  HP: 5000
-  ATK: 200
+  HP: 1000
 --- !u!114 &2244836940713236809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,8 +842,9 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 011b8b8bf572a4a45b029063cb41d721, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 5
 --- !u!95 &5251675312591764654
 Animator:
   serializedVersion: 4
@@ -849,7 +861,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -875,7 +887,19 @@ MonoBehaviour:
       m_Calls: []
   OnIsAliveChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7970205845878994290}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnMaximumHealthChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -891,4 +915,4 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 258d2eb9136ce48498c682718e103ef4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 

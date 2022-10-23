@@ -736,8 +736,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -817,8 +817,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cf3608c6c051d64b804454a10b7dd6f, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   timerCounter: {fileID: 425658509}
   currentTime: 0
 --- !u!114 &425658509
@@ -831,8 +831,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -1159,6 +1159,10 @@ PrefabInstance:
     - target: {fileID: 1896192369536451222, guid: 56af1d8762815414daf27dcbb5af473c, type: 3}
       propertyPath: m_Name
       value: HealthBarCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6134221255998201665, guid: 56af1d8762815414daf27dcbb5af473c, type: 3}
+      propertyPath: shouldShowHealthNumbers
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56af1d8762815414daf27dcbb5af473c, type: 3}
@@ -3867,6 +3871,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d3181a066c5664c8db4c4a5437b091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeBetweenWaves: 5
+  waveCountDown: 0
 --- !u!1 &1150959659
 GameObject:
   m_ObjectHideFlags: 0

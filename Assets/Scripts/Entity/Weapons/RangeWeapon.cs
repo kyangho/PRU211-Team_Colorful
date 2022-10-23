@@ -24,9 +24,7 @@ public class RangeWeapon : Weapon
     {
         if (collision.gameObject.tag.Contains("Enemy"))
         {
-            AudioManager.Instance.PlayAudioOneShot((AudioClip)Resources.Load("Audios/KillSound"), 0.1f);
-            //collision.gameObject.tag = "Enemy";
-            collision.gameObject.SetActive(false);
+            collision.gameObject.GetComponent<HealthSystem>().GotHitFor(ATK);
             Destroy(gameObject);
         }
         else

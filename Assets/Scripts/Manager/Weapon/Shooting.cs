@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
+    [SerializeField]
+    protected float cooldownTime = 5f;
+    protected float waitTime;
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +45,11 @@ public class Shooting : MonoBehaviour
     /// <param name="weapon"></param>
     protected GameObject shoot(GameObject weapon, GameObject firePoint)
     {
-        GameObject Bullet = Instantiate<GameObject>(weapon, firePoint.transform.position, firePoint.transform.rotation);
-        Rigidbody2D rb = Bullet.GetComponent<Rigidbody2D>();
-        weapon.GetComponent<Weapon>().FirePoint = firePoint;
+        GameObject bullet = Instantiate<GameObject>(weapon, firePoint.transform.position, firePoint.transform.rotation);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        //weapon.GetComponent<Weapon>().FirePoint = firePoint;
         rb.AddForce(firePoint.transform.up * 20f, ForceMode2D.Impulse);
-        return Bullet;
+        return bullet;
     }
 
     /// <summary>

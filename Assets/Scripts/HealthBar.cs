@@ -20,13 +20,21 @@ public class HealthBar : MonoBehaviour
 
     private void Start()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-        {
-            healthSystem = player.GetComponent<HealthSystem>();
-            healthSystem.OnCurrentHealthChanged.AddListener(ChangeHealthFill);
 
+        healthSystem = GetComponentInParent<HealthSystem>();
+        if (healthSystem == null)
+        {
+            if (GameObject.FindGameObjectWithTag("Player") != null)
+                healthSystem = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
         }
+        //GameObject player = GameObject.FindGameObjectWithTag("Player");
+        //if (player != null)
+        //{
+        //    healthSystem = player.GetComponent<HealthSystem>();
+        if(healthSystem != null)
+        healthSystem.OnCurrentHealthChanged.AddListener(ChangeHealthFill);
+
+        //}
         image = GetComponentInChildren<Image>();
         text = GetComponentInChildren<Text>();
         followCameraRotation = GetComponent<FollowCameraRotation>();
@@ -36,10 +44,18 @@ public class HealthBar : MonoBehaviour
     {
         if (healthSystem == null)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
-                healthSystem = player.GetComponent<HealthSystem>();
+            //GameObject player = GameObject.FindGameObjectWithTag("Player");
+            //if (player != null)
+            //    healthSystem = player.GetComponent<HealthSystem>();
 
+            healthSystem = GetComponentInParent<HealthSystem>();
+            if (healthSystem == null)
+            {
+                healthSystem = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
+            }
+            image = GetComponentInChildren<Image>();
+            text = GetComponentInChildren<Text>();
+            followCameraRotation = GetComponent<FollowCameraRotation>();
         }
         animationSpeed = healthSystem.AnimationDuration;
 
@@ -82,5 +98,26 @@ public class HealthBar : MonoBehaviour
 
         this.leftoverAmount = 0;
         image.fillAmount = finalValue;
+
+    }
+
+    public void SetHealthSystem()
+    {
+        if (healthSystem == null)
+        {
+            //GameObject healthObject = transform.parent.gameObject;
+            healthSystem = GetComponentInParent<HealthSystem>();
+            if (healthSystem == null)
+            {
+                healthSystem = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
+            }
+            //if (healthObject != null)
+            //{
+            //Debug.Log(healthObject.tag);
+            //healthSystem = healthObject.GetComponent<HealthSystem>();
+            healthSystem.OnCurrentHealthChanged.AddListener(ChangeHealthFill);
+
+            //}
+        }
     }
 }
