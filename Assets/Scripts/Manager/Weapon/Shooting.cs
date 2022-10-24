@@ -47,7 +47,6 @@ public class Shooting : MonoBehaviour
     {
         GameObject bullet = Instantiate<GameObject>(weapon, firePoint.transform.position, firePoint.transform.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        //weapon.GetComponent<Weapon>().FirePoint = firePoint;
         rb.AddForce(firePoint.transform.up * 20f, ForceMode2D.Impulse);
         return bullet;
     }
@@ -84,11 +83,9 @@ public class Shooting : MonoBehaviour
     {
         if (waitTime >= cooldownTime)
         {
-            //Debug.Log("true");
             return true;
         }
         waitTime += deltaTime;
-        //Debug.Log("wait time: " + waitTime + "\tcd time: " + cooldownTime);
         return false;
     }
 }

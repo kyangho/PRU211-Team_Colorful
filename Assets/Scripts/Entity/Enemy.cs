@@ -1,4 +1,5 @@
 using Assets.Scripts.Entity.Weapons;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,14 +10,15 @@ public class Enemy : MonoBehaviour
     GameObject player;
     float MoveUnitsPerSecond = 1f;
     [SerializeField]
-    float atk = 10f;
+    float atk;
     [SerializeField]
-    float hp = 400f;
+    float hp;
     [SerializeField]
-    float attackRange = 2f;
+    float attackRange;
     [SerializeField]
-    private float cdTime = 3f;
+    private float cdTime;
     private float waitTime;
+    private int percent = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +35,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         player = GameObject.FindWithTag("Player");
-        if(player != null)
+        if (player != null)
         {
             float step = MoveUnitsPerSecond * Time.deltaTime;
             //Find position of player and approach him
@@ -41,9 +43,11 @@ public class Enemy : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, point, step);
             float distanceToPlayer = Vector3.Distance(this.transform.position, player.transform.position);
 
-            if (player.GetComponent<Player>().SafeDistance >= distanceToPlayer) {
+            if (player.GetComponent<Player>().SafeDistance >= distanceToPlayer)
+            {
                 tag = "DangerEnemy";
-            } else
+            }
+            else
             {
                 tag = "Enemy";
             }
@@ -51,11 +55,12 @@ public class Enemy : MonoBehaviour
             if (distanceToPlayer <= attackRange)
             {
                 MoveUnitsPerSecond = 0f;
-                if(CoolDownAttack(Time.deltaTime))
+                if (CoolDownAttack(Time.deltaTime))
                 {
                     Attack(atk);
                 }
-            } else
+            }
+            else
             {
                 MoveUnitsPerSecond = 1f;
             }
@@ -64,7 +69,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             MoveUnitsPerSecond = 1f;
         }
@@ -88,7 +93,7 @@ public class Enemy : MonoBehaviour
 
     bool CoolDownAttack(float deltaTime)
     {
-        if(waitTime >= cdTime)
+        if (waitTime >= cdTime)
         {
             waitTime = 0f;
             return true;
@@ -102,6 +107,13 @@ public class Enemy : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
+        int wave = Convert.ToInt32(GameObject.Find("WaveCounter").GetComponent<UnityEngine.UI.Text>().text);
+        if (wave % 2 == 0 && wave > 0)
+        {
+            percent += 10;
+            atk = atk * percent / 100;
+            hp = hp * percent / 100;
+        }
         gameObject.GetComponent<HealthSystem>().CurrentHealth = hp;
         gameObject.GetComponent<HealthSystem>().MaximumHealth = hp;
         gameObject.GetComponent<HealthSystem>().IsAlive = true;
