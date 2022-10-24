@@ -47,7 +47,6 @@ public class Shooting : MonoBehaviour
     {
         GameObject bullet = Instantiate<GameObject>(weapon, firePoint.transform.position, firePoint.transform.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        //weapon.GetComponent<Weapon>().FirePoint = firePoint;
         rb.AddForce(firePoint.transform.up * 20f, ForceMode2D.Impulse);
         return bullet;
     }
@@ -80,4 +79,13 @@ public class Shooting : MonoBehaviour
         return target;
     }
 
+    protected bool CoolDownAttack(float deltaTime)
+    {
+        if (waitTime >= cooldownTime)
+        {
+            return true;
+        }
+        waitTime += deltaTime;
+        return false;
+    }
 }

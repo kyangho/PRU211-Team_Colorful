@@ -1,4 +1,3 @@
-using Assets.Scripts.Entity.Weapons;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,24 +7,25 @@ public class RangeShooting : Shooting
 
     [SerializeField]
     GameObject rangeWeapon;
+    private float range;
     // Start is called before the first frame update
     void Start()
     {
+        range = rangeWeapon.GetComponent<RangeWeapon>().range;
         waitTime = cooldownTime;
     }
 
     // Update is called once per frame
     void Update()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
         GameObject target;
         target = getTarget("DangerEnemy");
         bool cdFin = CoolDownAttack(Time.deltaTime);
         if (target == null)
             target = getTarget("Enemy");
-        //Debug.Log(target.name);
-        if (target != null && cdFin)
+        if (target != null && cdFin && Vector3.Distance(player.transform.position, target.transform.position) <= range)
         {
-
             rotate(target);
             shoot(rangeWeapon, gameObject);
             waitTime = 0;
@@ -37,12 +37,9 @@ public class RangeShooting : Shooting
     {
         if (waitTime >= cooldownTime)
         {
-            //waitTime = 0f;
-            //Debug.Log("true");
             return true;
         }
         waitTime += deltaTime;
-        //Debug.Log("wait time: " + waitTime + "\tcd time: " + cooldownTime);
         return false;
     }
 }
