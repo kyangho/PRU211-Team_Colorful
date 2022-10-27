@@ -1,3 +1,4 @@
+using Assets.Scripts.Entity.Weapons;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class UpgardeMenu : MonoBehaviour
 {
     public static bool isPause = false;
 
-    private int countWeaponUpgrade = 0;
+    private int countWeaponUpgrade = 1;
 
     public GameObject[] weapons; 
 
@@ -55,12 +56,12 @@ public class UpgardeMenu : MonoBehaviour
 
     public void UpradeWeapon()
     {
-        if (countWeaponUpgrade < 5)
+        if (countWeaponUpgrade < 6)
         {
             weapons[countWeaponUpgrade].SetActive(true);
             countWeaponUpgrade++;
         }
-        if(countWeaponUpgrade == 5)
+        if(countWeaponUpgrade == 6)
         {
             GameObject text = GameObject.Find("WeaponButtonText");
             text.GetComponent<Text>().text = "Max";
@@ -74,16 +75,11 @@ public class UpgardeMenu : MonoBehaviour
 
     public void UpgradeAtk()
     {
-
+        Weapon.ATK += 100;
     }
 
     public void UpgradeCrit()
     {
-
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
+        
     }
 }

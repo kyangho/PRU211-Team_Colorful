@@ -8,8 +8,7 @@ namespace Assets.Scripts.Entity.Weapons
         [SerializeField]
         public float range;
 
-        [SerializeField]
-        public float ATK;
+        public static float ATK = 100;
 
         public GameObject FirePoint { get; set; }
 
