@@ -10,16 +10,16 @@ public class Shooting : MonoBehaviour
     protected float waitTime;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    //void Start()
+    //{
 
-    }
+    //}
 
     // Update is called once per frame
-    protected void Update()
-    {
+    //protected void Update()
+    //{
 
-    }
+    //}
 
     /// <summary>
     /// Rotate player to the target direction

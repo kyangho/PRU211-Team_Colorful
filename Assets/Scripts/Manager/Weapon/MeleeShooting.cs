@@ -32,13 +32,13 @@ public class MeleeShooting : Shooting
 
     }
 
-    bool CoolDownAttack(float deltaTime)
-    {
-        if (waitTime >= cooldownTime)
-        {
-            return true;
-        }
-        waitTime += deltaTime;
-        return false;
-    }
+    //bool CoolDownAttack(float deltaTime)
+    //{
+    //    if (waitTime >= cooldownTime)
+    //    {
+    //        return true;
+    //    }
+    //    waitTime += deltaTime;
+    //    return false;
+    //}
 }
