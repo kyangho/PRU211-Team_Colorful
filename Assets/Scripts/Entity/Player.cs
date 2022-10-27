@@ -1,5 +1,7 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour, IBaseEntity
@@ -129,6 +131,17 @@ public class Player : MonoBehaviour, IBaseEntity
             animator.SetBool("Run", false);
             PlayerState = State.IDLE;
         }
+        ClampInScreen();
+    }
+
+    private void ClampInScreen()
+    {
+        GameObject cam = GameObject.FindWithTag("Cam");
+        Collider2D collider = cam.GetComponent<CinemachineConfiner>().m_BoundingShape2D;
+        Vector3 position = transform.position;
+        position.x = Mathf.Clamp(transform.position.x, collider.bounds.min.x, collider.bounds.max.x);
+        position.y = Mathf.Clamp(transform.position.y, collider.bounds.min.y, collider.bounds.max.y);
+        transform.position = position;
     }
 
     public void Idle()

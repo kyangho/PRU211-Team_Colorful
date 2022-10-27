@@ -55,7 +55,7 @@ public class HealthBar : MonoBehaviour
             //Debug.Log("healthbar: "+image.fillAmount);
         }
 
-        text.text = $"{healthSystem.CurrentHealth}/{(int)healthSystem.MaximumHealth}";
+        text.text = $"{healthSystem.CurrentHealth} / {(int)healthSystem.MaximumHealth}";
 
         text.enabled = shouldShowHealthNumbers;
 
