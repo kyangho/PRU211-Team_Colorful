@@ -1963,7 +1963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1896192369536451218, guid: 56af1d8762815414daf27dcbb5af473c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1896192369536451218, guid: 56af1d8762815414daf27dcbb5af473c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1971,7 +1971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1896192369536451218, guid: 56af1d8762815414daf27dcbb5af473c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1896192369536451218, guid: 56af1d8762815414daf27dcbb5af473c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2023,11 +2023,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1896192369536451218, guid: 56af1d8762815414daf27dcbb5af473c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 440
+      value: 410
       objectReference: {fileID: 0}
     - target: {fileID: 1896192369536451218, guid: 56af1d8762815414daf27dcbb5af473c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1270
+      value: -130
       objectReference: {fileID: 0}
     - target: {fileID: 1896192369536451218, guid: 56af1d8762815414daf27dcbb5af473c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3223,7 +3223,7 @@ GameObject:
   - component: {fileID: 930253799}
   m_Layer: 0
   m_Name: CM vcam2
-  m_TagString: Untagged
+  m_TagString: Cam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
