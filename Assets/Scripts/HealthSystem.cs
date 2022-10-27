@@ -49,7 +49,7 @@ public class HealthSystem : MonoBehaviour
         OnCurrentHealthChanged.Invoke(new CurrentHealth(cachedCurrentHealth, CurrentHealth, CurrentHealthPercentage));
     }
 
-    void GotHealedFor(float value)
+    public void GotHealedFor(float value)
     {
         CurrentHealth += value;
 
@@ -68,7 +68,7 @@ public class HealthSystem : MonoBehaviour
     {
         if (!IsAlive) { return; }
 
-        float absoluteValue = Mathf.Abs(damage);
+        float absoluteValue = (int) Mathf.Abs(damage);
         DecreaseCurrentHealthBy(absoluteValue);
     }
 

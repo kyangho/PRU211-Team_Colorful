@@ -23,8 +23,13 @@ public class Player : MonoBehaviour, IBaseEntity
     public float SafeDistance { get; set; } = 3f;
 
     [SerializeField]
-    public float HP = 5000;
+    public float HP;
 
+    [SerializeField]
+    public float regen;
+
+    public bool canRegen = true;
+    public float timeToHealth = 5f;
 
     private Vector3 moveDir;
     void Start()
@@ -36,6 +41,7 @@ public class Player : MonoBehaviour, IBaseEntity
         gameObject.GetComponent<HealthSystem>().CurrentHealth = HP;
         gameObject.GetComponent<HealthSystem>().MaximumHealth = HP;
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -48,8 +54,41 @@ public class Player : MonoBehaviour, IBaseEntity
                 Idle();
                 break;
         }
-        
+        if(gameObject.GetComponent<HealthSystem>().MaximumHealth < HP)
+        {
+            gameObject.GetComponent<HealthSystem>().MaximumHealth = HP;
+        }
+
+        TimeRegen();
     }
+
+    void TimeRegen()
+    {
+        if (!canRegen)
+        {
+            timeToHealth -= Time.deltaTime;
+            if(timeToHealth < 0)
+            {
+                canRegen = true;
+            }
+        }
+        else
+        {
+            timeToHealth -= Time.deltaTime;
+            if (timeToHealth < 0)
+            {
+                Regen(regen);
+                timeToHealth = 3f;
+            }
+        }
+    }
+
+    void Regen(float regen)
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<HealthSystem>().GotHealedFor(regen);
+    }
+
     public void Movement()
     {
         bool isMoving = false;

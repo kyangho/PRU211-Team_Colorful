@@ -89,6 +89,8 @@ public class Enemy : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<HealthSystem>().GotHitFor(damage);
+        player.GetComponent<Player>().canRegen = false;
+        player.GetComponent<Player>().timeToHealth = 5f;
     }
 
     bool CoolDownAttack(float deltaTime)

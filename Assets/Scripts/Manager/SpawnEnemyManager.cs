@@ -17,6 +17,9 @@ public class SpawnEnemyManager : MonoBehaviour
 
     private SpawnState state = SpawnState.COUNTING;
 
+    private int minEnemy = 10;
+    private int maxEnemy = 31;
+
     ObjectPooler objectPooler;
 
     void Start()
@@ -63,7 +66,66 @@ public class SpawnEnemyManager : MonoBehaviour
     {
         state = SpawnState.COUNTING;
         waveCountDown = timeBetweenWaves;
+        GetNumberOfEnemy();
         nextWave++;
+    }
+
+    private void GetNumberOfEnemy()
+    {
+        if (nextWave <= 10)
+        {
+            minEnemy = 10;
+            maxEnemy = 31;
+        }else if(nextWave <= 20)
+        {
+            minEnemy = 20;
+            maxEnemy = 41;
+        }
+        else if (nextWave <= 30)
+        {
+            minEnemy = 30;
+            maxEnemy = 51;
+        }
+        else if (nextWave <= 40)
+        {
+            minEnemy = 40;
+            maxEnemy = 61;
+        }
+        else if (nextWave <= 50)
+        {
+            minEnemy = 50;
+            maxEnemy = 71;
+        }
+        else if (nextWave <= 60)
+        {
+            minEnemy = 60;
+            maxEnemy = 81;
+        }
+        else if (nextWave <= 70)
+        {
+            minEnemy = 70;
+            maxEnemy = 91;
+        }
+        else if (nextWave <= 80)
+        {
+            minEnemy = 80;
+            maxEnemy = 101;
+        }
+        else if (nextWave <= 90)
+        {
+            minEnemy = 90;
+            maxEnemy = 111;
+        }
+        else if (nextWave <= 100)
+        {
+            minEnemy = 100;
+            maxEnemy = 121;
+        }
+        else
+        {
+            minEnemy = 100;
+            maxEnemy = 150;
+        }
     }
 
     bool EnemyIsAlive()
@@ -86,7 +148,7 @@ public class SpawnEnemyManager : MonoBehaviour
 
         waveCounter.text = (nextWave + 1).ToString();
         state = SpawnState.SPAWNING;
-        int numberOfEnemy = Random.Range(10, 30);
+        int numberOfEnemy = Random.Range(minEnemy, maxEnemy);
         for (int i = 0; i < numberOfEnemy; i++)
         {
             SpawnEnemy();

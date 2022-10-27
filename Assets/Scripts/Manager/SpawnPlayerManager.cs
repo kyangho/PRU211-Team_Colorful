@@ -10,6 +10,12 @@ public class SpawnPlayerManager : MonoBehaviour
     void Start()
     {
         SpawnPlayer();
+        GameObject[] weapons = GameObject.FindGameObjectsWithTag("FirePoint");
+        foreach (GameObject weapon in weapons)
+        {
+            weapon.SetActive(false);
+        }
+        weapons[0].SetActive(true);
     }
 
     // Update is called once per frame

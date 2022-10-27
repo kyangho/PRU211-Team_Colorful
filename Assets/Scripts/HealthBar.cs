@@ -27,14 +27,8 @@ public class HealthBar : MonoBehaviour
             if (GameObject.FindGameObjectWithTag("Player") != null)
                 healthSystem = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
         }
-        //GameObject player = GameObject.FindGameObjectWithTag("Player");
-        //if (player != null)
-        //{
-        //    healthSystem = player.GetComponent<HealthSystem>();
         if(healthSystem != null)
         healthSystem.OnCurrentHealthChanged.AddListener(ChangeHealthFill);
-
-        //}
         image = GetComponentInChildren<Image>();
         text = GetComponentInChildren<Text>();
         followCameraRotation = GetComponent<FollowCameraRotation>();
@@ -44,10 +38,6 @@ public class HealthBar : MonoBehaviour
     {
         if (healthSystem == null)
         {
-            //GameObject player = GameObject.FindGameObjectWithTag("Player");
-            //if (player != null)
-            //    healthSystem = player.GetComponent<HealthSystem>();
-
             healthSystem = GetComponentInParent<HealthSystem>();
             if (healthSystem == null)
             {
@@ -105,19 +95,12 @@ public class HealthBar : MonoBehaviour
     {
         if (healthSystem == null)
         {
-            //GameObject healthObject = transform.parent.gameObject;
             healthSystem = GetComponentInParent<HealthSystem>();
             if (healthSystem == null)
             {
                 healthSystem = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
             }
-            //if (healthObject != null)
-            //{
-            //Debug.Log(healthObject.tag);
-            //healthSystem = healthObject.GetComponent<HealthSystem>();
             healthSystem.OnCurrentHealthChanged.AddListener(ChangeHealthFill);
-
-            //}
         }
     }
 }

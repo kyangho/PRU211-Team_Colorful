@@ -111,7 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8781564319647841193}
   - component: {fileID: 4009947235251448355}
-  - component: {fileID: 6892623732867905955}
+  - component: {fileID: 5436507378669900069}
   m_Layer: 0
   m_Name: firePointTwo
   m_TagString: FirePoint
@@ -127,7 +127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3998485478163148054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3, y: 0.3, z: 0}
+  m_LocalPosition: {x: -0.6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -186,7 +186,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6892623732867905955
+--- !u!114 &5436507378669900069
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,11 +195,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3998485478163148054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a5a7d9e0740e93489964c9d18a9c44e, type: 3}
+  m_Script: {fileID: 11500000, guid: 514d07664c5e53746b162707205e79fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownTime: 1
-  rangeWeapon: {fileID: 148725120616052740, guid: 3749519c09f29da409dadba913bb8685, type: 3}
+  countMelee: 1
+  maxCountMelee: 1
+  meleeWeapon: {fileID: 148725120616052740, guid: fe5930b706f47ca4cbcb2947be959018, type: 3}
 --- !u!1 &4288835615445748434
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4726239491380851595}
   - component: {fileID: 451614364444497398}
-  - component: {fileID: 6600597341957591108}
+  - component: {fileID: 4958154315332900199}
   m_Layer: 0
   m_Name: firePointThree
   m_TagString: FirePoint
@@ -226,7 +228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4288835615445748434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6, y: 0, z: 0}
+  m_LocalPosition: {x: 0.3, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -285,7 +287,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6600597341957591108
+--- !u!114 &4958154315332900199
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -294,13 +296,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4288835615445748434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 514d07664c5e53746b162707205e79fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a5a7d9e0740e93489964c9d18a9c44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownTime: 1
-  countMelee: 1
-  maxCountMelee: 1
-  meleeWeapon: {fileID: 148725120616052740, guid: fe5930b706f47ca4cbcb2947be959018, type: 3}
+  rangeWeapon: {fileID: 148725120616052740, guid: 3749519c09f29da409dadba913bb8685, type: 3}
 --- !u!1 &4791044433749401729
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4791044433749401729}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3, y: -0.3, z: 0}
+  m_LocalPosition: {x: -0.3, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -525,7 +525,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5930338963501870285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3, y: -0.3, z: 0}
+  m_LocalPosition: {x: 0.3, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
