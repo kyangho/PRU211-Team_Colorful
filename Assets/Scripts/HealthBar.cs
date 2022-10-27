@@ -52,9 +52,10 @@ public class HealthBar : MonoBehaviour
         if (!healthSystem.HasAnimationWhenHealthChanges)
         {
             image.fillAmount = healthSystem.CurrentHealthPercentage / 100;
+            //Debug.Log("healthbar: "+image.fillAmount);
         }
 
-        text.text = $"{healthSystem.CurrentHealth}/{healthSystem.MaximumHealth}";
+        text.text = $"{healthSystem.CurrentHealth} / {(int)healthSystem.MaximumHealth}";
 
         text.enabled = shouldShowHealthNumbers;
 

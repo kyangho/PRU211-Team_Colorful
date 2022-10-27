@@ -748,6 +748,9 @@ MonoBehaviour:
   playerTransform: {fileID: 3180014547924719399}
   joystick: {fileID: 0}
   HP: 1000
+  regen: 0
+  canRegen: 1
+  timeToHealth: 5
 --- !u!114 &2244836940713236809
 MonoBehaviour:
   m_ObjectHideFlags: 0
