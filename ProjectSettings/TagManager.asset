@@ -15,6 +15,7 @@ TagManager:
   - Wall
   - Cam
   - GM
+  - InnerBoundary
   layers:
   - Default
   - TransparentFX

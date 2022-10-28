@@ -231,6 +231,6 @@ public class UpgardeMenu : MonoBehaviour
         {
             text.GetComponent<Text>().text = "Max";
         }
-        imageAtk.fillAmount = Weapon.critRate / maxCrit;
+        imageCrit.fillAmount = Weapon.critRate / maxCrit;
     }
 }
