@@ -43,8 +43,10 @@ public class UpgardeMenu : MonoBehaviour
     private Image imageWeapon;
 
     private bool firstTime = true;
-    private void Update()
+    private void Start()
     {
+        upgradeMenuUI.SetActive(true);
+        upgradeMenuUI.transform.localScale = Vector3.zero;
         imageHP = GameObject.Find("HealthFillImage").GetComponent<Image>();
         imageRegen = GameObject.Find("RegenFillImage").GetComponent<Image>();
         imageWeapon = GameObject.Find("WeaponFillImage").GetComponent<Image>();
@@ -59,6 +61,41 @@ public class UpgardeMenu : MonoBehaviour
         imageAtk.fillAmount = Weapon.ATK / maxAtk;
         imageCrit.fillAmount = Weapon.critRate / maxCrit;
         imageSpeed.fillAmount = maxSpeed / Shooting.cooldownTime;
+    }
+    private void OnEnable()
+    {
+        //if (firstTime)
+        //{
+        //    FirstTime();
+        //}
+
+    }
+    private void Update()
+    {
+        if (imageHP == null)
+        {
+            imageHP = GameObject.Find("HealthFillImage").GetComponent<Image>();
+        }
+        if (imageRegen == null)
+        {
+            imageRegen = GameObject.Find("RegenFillImage").GetComponent<Image>();
+        }
+        if (imageWeapon == null)
+        {
+            imageWeapon = GameObject.Find("WeaponFillImage").GetComponent<Image>();
+        }
+        if (imageAtk == null)
+        {
+            imageAtk = GameObject.Find("AtkFillImage").GetComponent<Image>();
+        }
+        if (imageCrit == null)
+        {
+            imageCrit = GameObject.Find("CritFillImage").GetComponent<Image>();
+        }
+        if (imageSpeed == null)
+        {
+            imageSpeed = GameObject.Find("SpeedFillImage").GetComponent<Image>();
+        }
         if (firstTime)
         {
             FirstTime();
@@ -84,14 +121,16 @@ public class UpgardeMenu : MonoBehaviour
 
     public void Resume()
     {
-        upgradeMenuUI.SetActive(false);
+        upgradeMenuUI.transform.localScale = Vector3.zero;
+        //upgradeMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPause = false;
     }
 
     public void Upgrade()
     {
-        upgradeMenuUI.SetActive(true);
+        upgradeMenuUI.transform.localScale = Vector3.one;
+        //upgradeMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isPause = true;
     }

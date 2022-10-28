@@ -9,7 +9,7 @@ namespace Assets.Scripts.Entity.Weapons
         public float range;
 
         public static float ATK = 100;
-        public static int critRate = 1;
+        public static float critRate = 1;
 
         public GameObject FirePoint { get; set; }
     }
