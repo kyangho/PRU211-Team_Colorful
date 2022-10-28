@@ -22351,6 +22351,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3291461169198881981, guid: fd6473e6e4c5d6e45973137f52545072, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3998485478163148054, guid: fd6473e6e4c5d6e45973137f52545072, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288835615445748434, guid: fd6473e6e4c5d6e45973137f52545072, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791044433749401729, guid: fd6473e6e4c5d6e45973137f52545072, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4913716412709172165, guid: fd6473e6e4c5d6e45973137f52545072, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930338963501870285, guid: fd6473e6e4c5d6e45973137f52545072, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7530626677350129736, guid: fd6473e6e4c5d6e45973137f52545072, type: 3}
       propertyPath: regen
       value: 30
