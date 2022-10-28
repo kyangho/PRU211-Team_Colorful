@@ -14,7 +14,7 @@ public class RangeWeapon : Weapon
     void Update()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if(Vector3.Distance(player.transform.position, transform.position) > range)
+        if (Vector3.Distance(player.transform.position, transform.position) > range)
         {
             Destroy(gameObject);
         }
@@ -24,7 +24,14 @@ public class RangeWeapon : Weapon
     {
         if (collision.gameObject.tag.Contains("Enemy"))
         {
-            collision.gameObject.GetComponent<HealthSystem>().GotHitFor(ATK);
+            if (Random.Range(1, 101) > 100 - critRate)
+            {
+                collision.gameObject.GetComponent<HealthSystem>().GotHitFor(ATK);
+            }
+            else
+            {
+                collision.gameObject.GetComponent<HealthSystem>().GotHitFor(ATK * 1.5f);
+            }
             Destroy(gameObject);
         }
         else

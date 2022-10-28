@@ -12,7 +12,7 @@ public class RangeShooting : Shooting
     void Start()
     {
         range = rangeWeapon.GetComponent<RangeWeapon>().range;
-        Debug.Log(range);
+        //Debug.Log(range);
         waitTime = cooldownTime;
     }
 
@@ -33,14 +33,4 @@ public class RangeShooting : Shooting
         }
 
     }
-
-    //bool CoolDownAttack(float deltaTime)
-    //{
-    //    if (waitTime >= cooldownTime)
-    //    {
-    //        return true;
-    //    }
-    //    waitTime += deltaTime;
-    //    return false;
-    //}
 }

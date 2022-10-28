@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    [SerializeField]
-    protected float cooldownTime = 5f;
+    public static float cooldownTime = 2;
     protected float waitTime;
 
     // Start is called before the first frame update

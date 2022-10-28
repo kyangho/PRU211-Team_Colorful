@@ -75,16 +75,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag.Contains("Weapon"))
-        {
-            //GetComponent<HealthSystem>().GotHitFor(collision.gameObject.GetComponent<Weapon>().ATK);
-            //gameObject.SetActive(false);
-        }
-
-    }
-
     void Attack(float damage)
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
