@@ -22,7 +22,7 @@ public class GameData
     public int nextWave;
     public GameData()
     {
-        this.coin = 0;
+        this.coin = -1;
         this.countUpgradeHP = 1;
         this.countUpgradeRegen = 1;
         this.countUpgradeWeapon = 1;

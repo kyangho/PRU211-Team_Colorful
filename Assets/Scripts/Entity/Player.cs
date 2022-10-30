@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour, IBaseEntity, IDataPersistance
@@ -50,7 +51,6 @@ public class Player : MonoBehaviour, IBaseEntity, IDataPersistance
 
     void Start()
     {
-        GameObject.Find("CoinCounter").GetComponent<Text>().text = "10000";
         _body = GetComponent<Rigidbody2D>();
         joystick = GameObject.FindGameObjectWithTag("InputControl").GetComponent<FloatingJoystick>();
         animator = gameObject.GetComponent<Animator>();
@@ -180,6 +180,7 @@ public class Player : MonoBehaviour, IBaseEntity, IDataPersistance
         {
             gameObject.GetComponent<HealthSystem>().CurrentHealth = 0;
             AudioManager.Instance.PlayAudioOneShot((AudioClip)Resources.Load("Audios/GameOver"), 1f);
+            SceneManager.LoadSceneAsync("GameOver");
         }
     }
 }

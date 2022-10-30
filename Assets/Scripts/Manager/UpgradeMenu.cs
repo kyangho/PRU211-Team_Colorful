@@ -43,6 +43,8 @@ public class UpgradeMenu : MonoBehaviour, IDataPersistance
 
     private bool firstTime = true;
 
+    private int dataCoin = -1;
+
     public void LoadData(GameData gameData)
     {
         this.countUpgradeHP = gameData.countUpgradeHP;
@@ -54,6 +56,7 @@ public class UpgradeMenu : MonoBehaviour, IDataPersistance
         Weapon.ATK = gameData.ATK;
         Weapon.critRate = gameData.critRate;
         Shooting.cooldownTime = gameData.cooldownTime;
+        dataCoin = gameData.coin;
     }
 
     public void SaveData(ref GameData gameData)
@@ -88,7 +91,75 @@ public class UpgradeMenu : MonoBehaviour, IDataPersistance
         imageAtk.fillAmount = Weapon.ATK / maxAtk;
         imageCrit.fillAmount = Weapon.critRate / maxCrit;
         imageSpeed.fillAmount = maxSpeed / Shooting.cooldownTime;
+
+        if (dataCoin != -1)
+        {
+            GameObject.Find("CoinCounter").GetComponent<Text>().text = dataCoin.ToString();
+        }
+        else
+        {
+            GetStartCoin();
+        }
     }
+
+    private void GetStartCoin()
+    {
+        switch (UnityEngine.Random.Range(1, 11))
+        {
+            case 1:
+                {
+                    dataCoin = 100;
+                    break;
+                }
+            case 2:
+                {
+                    dataCoin = 100;
+                    break;
+                }
+            case 3:
+                {
+                    dataCoin = 100;
+                    break;
+                }
+            case 4:
+                {
+                    dataCoin = 100;
+                    break;
+                }
+            case 5:
+                {
+                    dataCoin = 100;
+                    break;
+                }
+            case 6:
+                {
+                    dataCoin = 100;
+                    break;
+                }
+            case 7:
+                {
+                    dataCoin = 100;
+                    break;
+                }
+            case 8:
+                {
+                    dataCoin = 300;
+                    break;
+                }
+            case 9:
+                {
+                    dataCoin = 300;
+                    break;
+                }
+            case 10:
+                {
+                    dataCoin = 500;
+                    break;
+                }
+        }
+        GameObject.Find("CoinCounter").GetComponent<Text>().text = dataCoin.ToString();
+    }
+
     private void Update()
     {
         if (imageHP == null)
