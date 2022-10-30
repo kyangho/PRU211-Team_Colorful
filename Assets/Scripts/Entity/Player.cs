@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Player : MonoBehaviour, IBaseEntity
+public class Player : MonoBehaviour, IBaseEntity, IDataPersistance
 {
     public BaseData.PlayerDataManager playerData;
 
@@ -34,8 +35,22 @@ public class Player : MonoBehaviour, IBaseEntity
     public float timeToHealth = 5f;
 
     private Vector3 moveDir;
+
+    public void LoadData(GameData gameData)
+    {
+        this.HP = gameData.HP;
+        this.regen = gameData.regen;
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        gameData.HP = this.HP;
+        gameData.regen = this.regen;
+    }
+
     void Start()
     {
+        GameObject.Find("CoinCounter").GetComponent<Text>().text = "10000";
         _body = GetComponent<Rigidbody2D>();
         joystick = GameObject.FindGameObjectWithTag("InputControl").GetComponent<FloatingJoystick>();
         animator = gameObject.GetComponent<Animator>();
@@ -157,5 +172,14 @@ public class Player : MonoBehaviour, IBaseEntity
     private void OnTriggerEnter2D(Collider2D collision)
     {
         AudioManager.Instance.PlayAudioOneShot((AudioClip) Resources.Load("Audios/KillSound"), 0.1f);
+    }
+
+    public void IsAlive(bool isAlive)
+    {
+        if (!isAlive)
+        {
+            gameObject.GetComponent<HealthSystem>().CurrentHealth = 0;
+            AudioManager.Instance.PlayAudioOneShot((AudioClip)Resources.Load("Audios/GameOver"), 1f);
+        }
     }
 }

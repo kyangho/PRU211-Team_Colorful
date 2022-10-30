@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -18,7 +19,6 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float cdTime;
     private float waitTime;
-    private int percent = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -42,15 +42,6 @@ public class Enemy : MonoBehaviour
             Vector3 point = new Vector3(player.transform.position.x, player.transform.position.y, -Camera.main.transform.position.z);
             transform.position = Vector2.MoveTowards(transform.position, point, step);
             float distanceToPlayer = Vector3.Distance(this.transform.position, player.transform.position);
-
-            if (player.GetComponent<Player>().SafeDistance >= distanceToPlayer)
-            {
-                tag = "DangerEnemy";
-            }
-            else
-            {
-                tag = "Enemy";
-            }
 
             if (distanceToPlayer <= attackRange)
             {
@@ -99,16 +90,21 @@ public class Enemy : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
-        int wave = Convert.ToInt32(GameObject.Find("WaveCounter").GetComponent<UnityEngine.UI.Text>().text);
-        if (wave % 2 == 0 && wave > 0)
-        {
-            percent += 10;
-            atk = atk * percent / 100;
-            hp = hp * percent / 100;
-        }
+        int wave = Convert.ToInt32(GameObject.Find("WaveCounter").GetComponent<Text>().text);
+        int countIncreasing = wave / 5;
+        atk = atk * (100 + 10 * countIncreasing) / 100;
+        hp = hp * (100 + 10 * countIncreasing) / 100;
         gameObject.GetComponent<HealthSystem>().CurrentHealth = hp;
         gameObject.GetComponent<HealthSystem>().MaximumHealth = hp;
         gameObject.GetComponent<HealthSystem>().IsAlive = true;
         waitTime = cdTime;
+    }
+
+    public void IsAlive(bool isAlive)
+    {
+        if (!isAlive)
+        {
+            GameObject.Find("CoinCounter").GetComponent<Text>().text = (Convert.ToInt32(GameObject.Find("CoinCounter").GetComponent<Text>().text) + UnityEngine.Random.Range(1, 4)).ToString();
+        }
     }
 }

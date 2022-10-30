@@ -21,10 +21,8 @@ public class RangeShooting : Shooting
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         GameObject target;
-        target = getTarget("DangerEnemy");
+        target = getTarget("Enemy");
         bool cdFin = CoolDownAttack(Time.deltaTime);
-        if (target == null)
-            target = getTarget("Enemy");
         if (target != null && cdFin && Vector3.Distance(player.transform.position, target.transform.position) <= range)
         {
             rotate(target);

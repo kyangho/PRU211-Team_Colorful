@@ -1,14 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
-public class SpawnEnemyManager : MonoBehaviour
+public class SpawnEnemyManager : MonoBehaviour, IDataPersistance
 {
     public enum SpawnState { SPAWNING, WAITTING, COUNTING }
 
     public Text waveCounter;
-    private int nextWave = 0;
+    private int nextWave = 62;
 
     public float timeBetweenWaves;
     private float waveCountDown;
@@ -22,8 +24,19 @@ public class SpawnEnemyManager : MonoBehaviour
 
     ObjectPooler objectPooler;
 
+    public void LoadData(GameData gameData)
+    {
+        this.nextWave = gameData.nextWave;
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        gameData.nextWave = this.nextWave;
+    }
+
     void Start()
     {
+        GameObject.Find("WaveCounter").GetComponent<Text>().text = nextWave.ToString();
         waveCountDown = timeBetweenWaves;
         objectPooler = ObjectPooler.Instance;
     }
@@ -32,7 +45,7 @@ public class SpawnEnemyManager : MonoBehaviour
     {
         if (state == SpawnState.WAITTING)
         {
-            if (!EnemyIsAlive())
+            if (!EnemyIsAlive() && Convert.ToInt32(GameObject.Find("WaveCounter").GetComponent<Text>().text) != 0)
             {
                 WaveCompleted();
             }

@@ -97,7 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514d07664c5e53746b162707205e79fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTime: 1
   countMelee: 1
   maxCountMelee: 1
   meleeWeapon: {fileID: 148725120616052740, guid: fe5930b706f47ca4cbcb2947be959018, type: 3}
@@ -198,7 +197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514d07664c5e53746b162707205e79fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTime: 1
   countMelee: 1
   maxCountMelee: 1
   meleeWeapon: {fileID: 148725120616052740, guid: fe5930b706f47ca4cbcb2947be959018, type: 3}
@@ -299,7 +297,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5a7d9e0740e93489964c9d18a9c44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTime: 1
   rangeWeapon: {fileID: 148725120616052740, guid: 3749519c09f29da409dadba913bb8685, type: 3}
 --- !u!1 &4791044433749401729
 GameObject:
@@ -398,7 +395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5a7d9e0740e93489964c9d18a9c44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTime: 1
   rangeWeapon: {fileID: 148725120616052740, guid: 3749519c09f29da409dadba913bb8685, type: 3}
 --- !u!1 &4913716412709172165
 GameObject:
@@ -497,7 +493,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5a7d9e0740e93489964c9d18a9c44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTime: 1
   rangeWeapon: {fileID: 148725120616052740, guid: 3749519c09f29da409dadba913bb8685, type: 3}
 --- !u!1 &5930338963501870285
 GameObject:
@@ -596,7 +591,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5a7d9e0740e93489964c9d18a9c44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTime: 1
   rangeWeapon: {fileID: 148725120616052740, guid: 3749519c09f29da409dadba913bb8685, type: 3}
 --- !u!1 &7970205845878994290
 GameObject:
@@ -763,7 +757,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011b8b8bf572a4a45b029063cb41d721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTime: 5
 --- !u!95 &5251675312591764654
 Animator:
   serializedVersion: 4

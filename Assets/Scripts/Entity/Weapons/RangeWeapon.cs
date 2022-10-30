@@ -24,7 +24,7 @@ public class RangeWeapon : Weapon
     {
         if (collision.gameObject.tag.Contains("Enemy"))
         {
-            if (Random.Range(1, 101) > 100 - critRate)
+            if (Random.Range(1, 101) < 100 - critRate)
             {
                 collision.gameObject.GetComponent<HealthSystem>().GotHitFor(ATK);
             }
