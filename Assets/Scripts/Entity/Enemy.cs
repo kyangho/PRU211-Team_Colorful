@@ -9,7 +9,8 @@ public class Enemy : MonoBehaviour
 {
 
     GameObject player;
-    float MoveUnitsPerSecond = 1f;
+    [SerializeField]
+    float MoveUnitsPerSecond;
     [SerializeField]
     float atk;
     [SerializeField]
@@ -104,6 +105,7 @@ public class Enemy : MonoBehaviour
     {
         if (!isAlive)
         {
+            AudioManager.Instance.PlayAudioOneShot((AudioClip)Resources.Load("Audios/Bonus"), 0.5f);
             GameObject.Find("CoinCounter").GetComponent<Text>().text = (Convert.ToInt32(GameObject.Find("CoinCounter").GetComponent<Text>().text) + UnityEngine.Random.Range(1, 4)).ToString();
         }
     }

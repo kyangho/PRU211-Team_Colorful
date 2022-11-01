@@ -32,8 +32,8 @@ Transform:
   m_GameObject: {fileID: 1450009375645318336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -34.2645, y: -12.947, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5718740046098238106}
   m_Father: {fileID: 0}
@@ -123,8 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788e4e522cee9834d961159bddb5c8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atk: 10
-  hp: 400
+  MoveUnitsPerSecond: 0
+  atk: 2
+  hp: 600
   attackRange: 2
   cdTime: 5
 --- !u!50 &4999848364328321721

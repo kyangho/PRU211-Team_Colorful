@@ -140,7 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788e4e522cee9834d961159bddb5c8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atk: 10
+  MoveUnitsPerSecond: 3
+  atk: 5
   hp: 400
   attackRange: 2
   cdTime: 3
