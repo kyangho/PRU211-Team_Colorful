@@ -42,12 +42,12 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         if (player != null)
         {
-            float step = speed * Time.deltaTime;
+            float step = MoveUnitsPerSecond * Time.deltaTime;
             //Find position of player and approach him
             Vector3 point = new Vector3(player.transform.position.x, player.transform.position.y, -Camera.main.transform.position.z);
             transform.position = Vector2.MoveTowards(transform.position, point, step);
-            float distanceToPlayer = Vector3.Distance(this.transform.position, player.transform.position);
 
+            float distanceToPlayer = Vector3.Distance(this.transform.position, player.transform.position);
             if (distanceToPlayer <= attackRange)
             {
                 MoveUnitsPerSecond = 0f;
