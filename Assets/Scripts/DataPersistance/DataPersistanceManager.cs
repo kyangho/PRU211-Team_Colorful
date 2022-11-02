@@ -82,9 +82,13 @@ public class DataPersistanceManager : MonoBehaviour
         fildeDataHandler.Save(gameData);
     }
 
-    private void OnApplicationQuit()
+    void Update()
     {
-        SaveGame();
+        if(SpawnEnemyManager.canSave)
+        {
+            SaveGame();
+            SpawnEnemyManager.canSave = false;
+        }
     }
 
     private List<IDataPersistance> FindAllDataPersistanceObjects()
