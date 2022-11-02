@@ -123,10 +123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788e4e522cee9834d961159bddb5c8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveUnitsPerSecond: 0
-  atk: 2
+  speed: 1
+  atk: 20
   hp: 600
-  attackRange: 2
+  attackRange: 5
   cdTime: 5
 --- !u!50 &4999848364328321721
 Rigidbody2D:

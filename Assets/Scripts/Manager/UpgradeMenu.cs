@@ -57,6 +57,9 @@ public class UpgradeMenu : MonoBehaviour, IDataPersistance
         Weapon.critRate = gameData.critRate;
         Shooting.cooldownTime = gameData.cooldownTime;
         dataCoin = gameData.coin;
+        GameObject player = GameObject.FindWithTag("Player");
+        player.GetComponent<Player>().HP = gameData.HP;
+        player.GetComponent<Player>().regen = gameData.regen;
     }
 
     public void SaveData(ref GameData gameData)
@@ -71,6 +74,9 @@ public class UpgradeMenu : MonoBehaviour, IDataPersistance
         gameData.critRate = Weapon.critRate;
         gameData.cooldownTime = Shooting.cooldownTime;
         gameData.coin = Convert.ToInt32(GameObject.Find("CoinCounter").GetComponent<Text>().text);
+        GameObject player = GameObject.FindWithTag("Player");
+        gameData.HP = player.GetComponent<Player>().HP;
+        gameData.regen = player.GetComponent<Player>().regen;
     }
 
     private void Start()
@@ -251,7 +257,7 @@ public class UpgradeMenu : MonoBehaviour, IDataPersistance
     public void UpgradeHealth()
     {
         float coin = Convert.ToInt32(GameObject.Find("CoinCounter").GetComponent<Text>().text);
-        if (coin > countUpgradeHP * baseCostHP)
+        if (coin >= countUpgradeHP * baseCostHP)
         {
             GameObject text = GameObject.Find("HealthButtonText");
             GameObject player = GameObject.FindWithTag("Player");
@@ -274,7 +280,7 @@ public class UpgradeMenu : MonoBehaviour, IDataPersistance
     public void UpgradeRegen()
     {
         float coin = Convert.ToInt32(GameObject.Find("CoinCounter").GetComponent<Text>().text);
-        if (coin > countUpgradeRegen * baseCostRegen)
+        if (coin >= countUpgradeRegen * baseCostRegen)
         {
             GameObject text = GameObject.Find("RegenButtonText");
             GameObject player = GameObject.FindWithTag("Player");
@@ -297,7 +303,7 @@ public class UpgradeMenu : MonoBehaviour, IDataPersistance
     public void UpgradeWeapon()
     {
         float coin = Convert.ToInt32(GameObject.Find("CoinCounter").GetComponent<Text>().text);
-        if (coin > countUpgradeWeapon * baseCostWeapon)
+        if (coin >= countUpgradeWeapon * baseCostWeapon)
         {
             GameObject text = GameObject.Find("WeaponButtonText");
             if (countUpgradeWeapon < maxWeapon)
@@ -319,7 +325,7 @@ public class UpgradeMenu : MonoBehaviour, IDataPersistance
     public void UpgradeSpeed()
     {
         float coin = Convert.ToInt32(GameObject.Find("CoinCounter").GetComponent<Text>().text);
-        if (coin > countUpgradeSpeed * baseCostSpeed)
+        if (coin >= countUpgradeSpeed * baseCostSpeed)
         {
             GameObject text = GameObject.Find("SpeedButtonText");
             if (Shooting.cooldownTime > maxSpeed)
@@ -341,7 +347,7 @@ public class UpgradeMenu : MonoBehaviour, IDataPersistance
     public void UpgradeAtk()
     {
         float coin = Convert.ToInt32(GameObject.Find("CoinCounter").GetComponent<Text>().text);
-        if (coin > countUpgradeAtk * baseCostAtk)
+        if (coin >= countUpgradeAtk * baseCostAtk)
         {
             coin -= countUpgradeAtk * baseCostAtk;
             GameObject.Find("CoinCounter").GetComponent<Text>().text = coin.ToString();
@@ -363,7 +369,7 @@ public class UpgradeMenu : MonoBehaviour, IDataPersistance
     public void UpgradeCrit()
     {
         float coin = Convert.ToInt32(GameObject.Find("CoinCounter").GetComponent<Text>().text);
-        if (coin > countUpgradeCrit * baseCostCrit)
+        if (coin >= countUpgradeCrit * baseCostCrit)
         {
             coin -= countUpgradeCrit * baseCostCrit;
             GameObject.Find("CoinCounter").GetComponent<Text>().text = coin.ToString();

@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 
     GameObject player;
     [SerializeField]
-    float MoveUnitsPerSecond;
+    float speed;
     [SerializeField]
     float atk;
     [SerializeField]
@@ -19,12 +19,16 @@ public class Enemy : MonoBehaviour
     float attackRange;
     [SerializeField]
     private float cdTime;
+
+    private float MoveUnitsPerSecond;
     private float waitTime;
 
     // Start is called before the first frame update
     void Start()
     {
+
         waitTime = cdTime;
+        MoveUnitsPerSecond = speed;
 
         //Set max hp for enemy
         gameObject.GetComponent<HealthSystem>().CurrentHealth = hp;
@@ -38,7 +42,7 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         if (player != null)
         {
-            float step = MoveUnitsPerSecond * Time.deltaTime;
+            float step = speed * Time.deltaTime;
             //Find position of player and approach him
             Vector3 point = new Vector3(player.transform.position.x, player.transform.position.y, -Camera.main.transform.position.z);
             transform.position = Vector2.MoveTowards(transform.position, point, step);
@@ -54,7 +58,7 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-                MoveUnitsPerSecond = 1f;
+                MoveUnitsPerSecond = speed;
             }
         }
     }
@@ -63,7 +67,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            MoveUnitsPerSecond = 1f;
+            MoveUnitsPerSecond = speed;
         }
     }
 

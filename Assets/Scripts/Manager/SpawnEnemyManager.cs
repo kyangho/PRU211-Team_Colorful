@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class SpawnEnemyManager : MonoBehaviour, IDataPersistance
 {
+    public static bool canSave = false;
     public enum SpawnState { SPAWNING, WAITTING, COUNTING }
 
     public Text waveCounter;
@@ -77,6 +78,7 @@ public class SpawnEnemyManager : MonoBehaviour, IDataPersistance
 
     void WaveCompleted()
     {
+        canSave = true;
         state = SpawnState.COUNTING;
         waveCountDown = timeBetweenWaves;
         GetNumberOfEnemy();

@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788e4e522cee9834d961159bddb5c8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveUnitsPerSecond: 10
+  speed: 4
   atk: 10
   hp: 200
   attackRange: 1

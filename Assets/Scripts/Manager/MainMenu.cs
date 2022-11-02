@@ -30,6 +30,6 @@ public class MainMenu : MonoBehaviour
     private void DisableMenuButtons()
     {
         newGameButton.interactable = false;
-        countinueGameButton.interactable=false;
+        countinueGameButton.interactable = false;
     }
 }

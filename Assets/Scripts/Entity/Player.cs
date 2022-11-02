@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour, IBaseEntity, IDataPersistance
+public class Player : MonoBehaviour, IBaseEntity
 {
     public BaseData.PlayerDataManager playerData;
 
@@ -36,18 +36,6 @@ public class Player : MonoBehaviour, IBaseEntity, IDataPersistance
     public float timeToHealth = 5f;
 
     private Vector3 moveDir;
-
-    public void LoadData(GameData gameData)
-    {
-        this.HP = gameData.HP;
-        this.regen = gameData.regen;
-    }
-
-    public void SaveData(ref GameData gameData)
-    {
-        gameData.HP = this.HP;
-        gameData.regen = this.regen;
-    }
 
     void Start()
     {
