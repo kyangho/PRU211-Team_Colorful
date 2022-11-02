@@ -19,12 +19,22 @@ public class PlayerFlip : MonoBehaviour
     void Update()
     {
         Vector3 position = gameObject.transform.position;
-        if ((position.x > previousPosition.x && !IsRight) || (position.x < previousPosition.x && IsRight))
+        if (gameObject.tag == "Player" && ((position.x > previousPosition.x && !IsRight) || (position.x < previousPosition.x && IsRight)))
+        {
+            Collider2D collider = GameObject.Find("Inner Boundary").GetComponent<PolygonCollider2D>();
+            if (previousPosition.x > collider.bounds.min.x && previousPosition.x < collider.bounds.max.x)
+            {
+                ChangeDirection();
+            }
+        }
+
+        if (gameObject.tag == "Enemy" && ((position.x < GameObject.FindGameObjectWithTag("Player").transform.position.x && !IsRight)
+            || (position.x > GameObject.FindGameObjectWithTag("Player").transform.position.x && IsRight)))
         {
             ChangeDirection();
         }
-
         previousPosition = position;
+
     }
 
 
@@ -35,4 +45,5 @@ public class PlayerFlip : MonoBehaviour
         transform.localScale = scale;
         IsRight = !IsRight;
     }
+
 }

@@ -2048,7 +2048,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4633,7 +4633,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -5301,6 +5301,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238436185}
   m_CullTransparentMesh: 1
+--- !u!1 &1270960411 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7970205845878994290, guid: fd6473e6e4c5d6e45973137f52545072, type: 3}
+  m_PrefabInstance: {fileID: 1720429137}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1301290935
 GameObject:
   m_ObjectHideFlags: 0
@@ -21921,7 +21926,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7530626677350129736, guid: fd6473e6e4c5d6e45973137f52545072, type: 3}
   m_PrefabInstance: {fileID: 1720429137}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1270960411}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce99932e8f19981448267ef07a30aa18, type: 3}
@@ -22417,20 +22422,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5832597602947196541, guid: fd6473e6e4c5d6e45973137f52545072, type: 3}
-      propertyPath: OnIsAliveChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      propertyPath: OnIsAliveChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1536987161}
+    - target: {fileID: 5832597602947196541, guid: fd6473e6e4c5d6e45973137f52545072, type: 3}
+      propertyPath: OnIsAliveChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1270960411}
     - target: {fileID: 5832597602947196541, guid: fd6473e6e4c5d6e45973137f52545072, type: 3}
       propertyPath: OnIsAliveChanged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5832597602947196541, guid: fd6473e6e4c5d6e45973137f52545072, type: 3}
-      propertyPath: OnIsAliveChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      propertyPath: OnIsAliveChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: IsAlive
       objectReference: {fileID: 0}
     - target: {fileID: 5832597602947196541, guid: fd6473e6e4c5d6e45973137f52545072, type: 3}
-      propertyPath: OnIsAliveChanged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      propertyPath: OnIsAliveChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5832597602947196541, guid: fd6473e6e4c5d6e45973137f52545072, type: 3}
+      propertyPath: OnIsAliveChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Player, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5832597602947196541, guid: fd6473e6e4c5d6e45973137f52545072, type: 3}
+      propertyPath: OnIsAliveChanged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5832597602947196541, guid: fd6473e6e4c5d6e45973137f52545072, type: 3}
       propertyPath: OnIsAliveChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
