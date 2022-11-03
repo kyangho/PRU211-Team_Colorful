@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  atk: 10
-  hp: 200
+  baseATK: 10
+  baseHP: 100
   attackRange: 1
   cdTime: 2
 --- !u!50 &7567789016985848966

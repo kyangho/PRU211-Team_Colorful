@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1450009375645318336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -34.2645, y: -12.947, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5718740046098238106}
@@ -124,9 +124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  atk: 20
-  hp: 600
-  attackRange: 5
+  baseATK: 20
+  baseHP: 600
+  attackRange: 1
   cdTime: 5
 --- !u!50 &4999848364328321721
 Rigidbody2D:

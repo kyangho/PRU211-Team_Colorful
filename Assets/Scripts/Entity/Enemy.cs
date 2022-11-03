@@ -12,9 +12,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     float speed;
     [SerializeField]
-    float atk;
+    float baseATK;
     [SerializeField]
-    float hp;
+    float baseHP;
     [SerializeField]
     float attackRange;
     [SerializeField]
@@ -23,9 +23,26 @@ public class Enemy : MonoBehaviour
     private float MoveUnitsPerSecond;
     private float waitTime;
 
+    private float hp;
+    private float atk;
+
+    private int nextWave = 0;
+
+    public void LoadData(GameData gameData)
+    {
+        this.nextWave = gameData.nextWave;
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        gameData.nextWave = this.nextWave;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        hp = baseHP;
+        atk = baseATK;
 
         waitTime = cdTime;
         MoveUnitsPerSecond = speed;
@@ -95,10 +112,15 @@ public class Enemy : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
-        int wave = Convert.ToInt32(GameObject.Find("WaveCounter").GetComponent<Text>().text);
-        int countIncreasing = wave / 5;
-        atk = atk * (100 + 10 * countIncreasing) / 100;
-        hp = hp * (100 + 10 * countIncreasing) / 100;
+        int countIncreasing = (nextWave + 1) / 5;
+        atk = baseATK * (100 + 10 * countIncreasing) / 100;
+        hp = baseHP * (100 + 10 * countIncreasing) / 100;
+        if ((nextWave + 1) % 5 == 0 && (nextWave + 1) > 0)
+        {
+            atk = baseATK * (100 + 10 * countIncreasing) / 100 * 5;
+            hp = baseHP * (100 + 10 * countIncreasing) / 100 * 5;
+            gameObject.transform.localScale = gameObject.transform.localScale * 5f;
+        }
         gameObject.GetComponent<HealthSystem>().CurrentHealth = hp;
         gameObject.GetComponent<HealthSystem>().MaximumHealth = hp;
         gameObject.GetComponent<HealthSystem>().IsAlive = true;
@@ -110,7 +132,14 @@ public class Enemy : MonoBehaviour
         if (!isAlive)
         {
             AudioManager.Instance.PlayAudioOneShot((AudioClip)Resources.Load("Audios/Bonus"), 0.5f);
-            GameObject.Find("CoinCounter").GetComponent<Text>().text = (Convert.ToInt32(GameObject.Find("CoinCounter").GetComponent<Text>().text) + UnityEngine.Random.Range(1, 4)).ToString();
+            if ((nextWave + 1) % 5 == 0 && (nextWave + 1) > 0)
+            {
+                GameObject.Find("CoinCounter").GetComponent<Text>().text = (Convert.ToInt32(GameObject.Find("CoinCounter").GetComponent<Text>().text) + 20).ToString();
+            }
+            else
+            {
+                GameObject.Find("CoinCounter").GetComponent<Text>().text = (Convert.ToInt32(GameObject.Find("CoinCounter").GetComponent<Text>().text) + UnityEngine.Random.Range(1, 4)).ToString();
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ public class SpawnEnemyManager : MonoBehaviour, IDataPersistance
     public enum SpawnState { SPAWNING, WAITTING, COUNTING }
 
     public Text waveCounter;
-    private int nextWave = 62;
+    private int nextWave = 0;
 
     public float timeBetweenWaves;
     private float waveCountDown;
@@ -37,6 +37,7 @@ public class SpawnEnemyManager : MonoBehaviour, IDataPersistance
 
     void Start()
     {
+        WaveCountDown();
         GameObject.Find("WaveCounter").GetComponent<Text>().text = nextWave.ToString();
         waveCountDown = timeBetweenWaves;
         objectPooler = ObjectPooler.Instance;
@@ -44,6 +45,7 @@ public class SpawnEnemyManager : MonoBehaviour, IDataPersistance
 
     void FixedUpdate()
     {
+        WaveCountDown();
         if (state == SpawnState.WAITTING)
         {
             if (!EnemyIsAlive() && Convert.ToInt32(GameObject.Find("WaveCounter").GetComponent<Text>().text) != 0)
@@ -74,6 +76,19 @@ public class SpawnEnemyManager : MonoBehaviour, IDataPersistance
         {
             position = new Vector3(Random.Range(-20, 20), Random.Range(-20, 20), 0);
         } while (Vector3.Distance(position, player.transform.position) < player.gameObject.GetComponent<Player>().SafeDistance);
+    }
+
+    void WaveCountDown()
+    {
+        GameObject waveCountdownText = GameObject.Find("WaveCountdown");
+        if (waveCountDown > 0)
+        {
+            waveCountdownText.GetComponent<Text>().text = "Start wave in:" + String.Format(waveCountDown.ToString("0"));
+        }
+        else
+        {
+            waveCountdownText.GetComponent<Text>().text = "";
+        }
     }
 
     void WaveCompleted()
@@ -164,11 +179,17 @@ public class SpawnEnemyManager : MonoBehaviour, IDataPersistance
         waveCounter.text = (nextWave + 1).ToString();
         state = SpawnState.SPAWNING;
         int numberOfEnemy = Random.Range(minEnemy, maxEnemy);
-        for (int i = 0; i < numberOfEnemy; i++)
+        if ((nextWave + 1) % 5 == 0)
         {
             SpawnEnemy();
         }
-
+        else
+        {
+            for (int i = 0; i < numberOfEnemy; i++)
+            {
+                SpawnEnemy();
+            }
+        }
         state = SpawnState.WAITTING;
 
         yield break;
