@@ -175,7 +175,6 @@ public class SpawnEnemyManager : MonoBehaviour, IDataPersistance
 
     IEnumerator SpawnWave()
     {
-        Debug.Log(nextWave);
         waveCounter.text = (nextWave + 1).ToString();
         state = SpawnState.SPAWNING;
         int numberOfEnemy = Random.Range(minEnemy, maxEnemy);

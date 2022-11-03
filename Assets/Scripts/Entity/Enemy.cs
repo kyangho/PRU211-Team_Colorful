@@ -101,6 +101,10 @@ public class Enemy : MonoBehaviour
         int countIncreasing = wave / 5;
         atk = baseATK * (100 + 10 * countIncreasing) / 100;
         hp = baseHP * (100 + 10 * countIncreasing) / 100;
+        if(gameObject.transform.localScale.x > 2)
+        {
+            gameObject.transform.localScale = gameObject.transform.localScale / 5f;
+        }
         if (wave % 5 == 0 && wave > 0)
         {
             atk = baseATK * (100 + 10 * countIncreasing) / 100 * 5;
