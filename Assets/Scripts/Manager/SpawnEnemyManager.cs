@@ -11,7 +11,7 @@ public class SpawnEnemyManager : MonoBehaviour, IDataPersistance
     public enum SpawnState { SPAWNING, WAITTING, COUNTING }
 
     public Text waveCounter;
-    private int nextWave = 0;
+    private int nextWave;
 
     public float timeBetweenWaves;
     private float waveCountDown;
@@ -175,7 +175,7 @@ public class SpawnEnemyManager : MonoBehaviour, IDataPersistance
 
     IEnumerator SpawnWave()
     {
-
+        Debug.Log(nextWave);
         waveCounter.text = (nextWave + 1).ToString();
         state = SpawnState.SPAWNING;
         int numberOfEnemy = Random.Range(minEnemy, maxEnemy);

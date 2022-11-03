@@ -26,24 +26,9 @@ public class Enemy : MonoBehaviour
     private float hp;
     private float atk;
 
-    private int nextWave = 0;
-
-    public void LoadData(GameData gameData)
-    {
-        this.nextWave = gameData.nextWave;
-    }
-
-    public void SaveData(ref GameData gameData)
-    {
-        gameData.nextWave = this.nextWave;
-    }
-
     // Start is called before the first frame update
     void Start()
     {
-        hp = baseHP;
-        atk = baseATK;
-
         waitTime = cdTime;
         MoveUnitsPerSecond = speed;
 
@@ -112,10 +97,11 @@ public class Enemy : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
-        int countIncreasing = (nextWave + 1) / 5;
+        int wave = Convert.ToInt32(GameObject.Find("WaveCounter").GetComponent<Text>().text);
+        int countIncreasing = wave / 5;
         atk = baseATK * (100 + 10 * countIncreasing) / 100;
         hp = baseHP * (100 + 10 * countIncreasing) / 100;
-        if ((nextWave + 1) % 5 == 0 && (nextWave + 1) > 0)
+        if (wave % 5 == 0 && wave > 0)
         {
             atk = baseATK * (100 + 10 * countIncreasing) / 100 * 5;
             hp = baseHP * (100 + 10 * countIncreasing) / 100 * 5;
@@ -129,10 +115,11 @@ public class Enemy : MonoBehaviour
 
     public void IsAlive(bool isAlive)
     {
+        int wave = Convert.ToInt32(GameObject.Find("WaveCounter").GetComponent<Text>().text);
         if (!isAlive)
         {
             AudioManager.Instance.PlayAudioOneShot((AudioClip)Resources.Load("Audios/Bonus"), 0.5f);
-            if ((nextWave + 1) % 5 == 0 && (nextWave + 1) > 0)
+            if ((wave) % 5 == 0 && (wave) > 0)
             {
                 GameObject.Find("CoinCounter").GetComponent<Text>().text = (Convert.ToInt32(GameObject.Find("CoinCounter").GetComponent<Text>().text) + 20).ToString();
             }
